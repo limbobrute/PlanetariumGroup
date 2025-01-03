@@ -12,15 +12,25 @@ import org.junit.Assert;
 import org.junit.rules.ExpectedException;
 import org.sqlite.SQLiteException;
 
+import java.util.Optional;
+
 public class MoonCreationTest
 {
     MoonDaoImp DaoObject;
     MoonServiceImp MoonService;
-    Moon TestMoon;
+    /*Test Moon variables for the Service Layer*/
+    Moon ServiceTestMoon;
     Moon InvalidName;
     Moon TooManyCharacters;
     Moon InvalidPlanetId;
     Moon NonUniqueName;
+    Moon BadImage;
+
+    /*Test Moon variables for the Repository Lyaer*/
+    Moon DAOTestMoon;
+    Moon DAOInvalidName;
+    Moon DAOInvalidID;
+    Moon DAOBadImage;
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -30,11 +40,21 @@ public class MoonCreationTest
     {
         DaoObject = new MoonDaoImp();
         MoonService = new MoonServiceImp(DaoObject);
-        TestMoon = new Moon(0, "Test", 1);
-        InvalidName = new Moon (0, "Test!!", 1);
+        /*Test Moon data for the Service Layer*/
+        ServiceTestMoon = new Moon(0, "Test", 1);
+        InvalidName = new Moon(0, "Test!!", 1);
         TooManyCharacters = new Moon(0, "thisissomanycharacterswhyisthisresitrctioninplace",1);
         InvalidPlanetId = new Moon(0, "BadId", 0);
         NonUniqueName = new Moon(0, "Titan", 1);
+        BadImage = new Moon(0, "BadImage", 1);
+        BadImage.setImageData(null);//Need to find a way to have this be garbage
+
+        /*Test Moon data for the Repository Layer*/
+        DAOTestMoon = new Moon(0, "DAOtest", 1);
+        DAOInvalidName = new Moon(0, "DAOtest!", 1);
+        DAOInvalidID = new Moon(0, "DAOBadId", 0);
+        DAOBadImage = new Moon(0, "DAOBadImage", 1);
+        DAOBadImage.setImageData(null);//Need to find a way to have this be garbage
         Setup.resetTestDatabase();
     }
 
@@ -43,7 +63,7 @@ public class MoonCreationTest
     public void ServiceLayerMoonCreationSuccess()
     {
         //Looking for boolean primitive set to TRUE
-        Moon NewMoon = MoonService.createMoon(TestMoon);
+        Moon NewMoon = MoonService.createMoon(ServiceTestMoon);
         Assert.assertEquals(3,NewMoon.getMoonId());
     }
 
@@ -72,16 +92,7 @@ public class MoonCreationTest
 
     }
 
-    @Test
-    public void ServiceLayerInvalidOwnerID()
-    {
-        //Looking for unhandled MoonFail Exception with message "Invalid planet ID"
-        thrown.expect(MoonFail.class);
-        //
-        Moon NewMoon = MoonService.createMoon(InvalidPlanetId);
-    }
 
-    
     @Test
     public void ServiceLayerInvalidMoonImage()
     {
@@ -93,18 +104,24 @@ public class MoonCreationTest
     public void RepoLayerMoonCreationSuccess()
     {
         //Looking for Optional object that contains a Moon object with a unique moonId
+        Optional<Moon> NewMoon = DaoObject.createMoon(DAOTestMoon);
+        Assert.assertTrue(NewMoon.isPresent());
     }
 
     @Test
     public void RepoLayerInvalidMoonName()
     {
         //Looking for unhandled MoonFail Exception with message "Invalid moon name"
+        thrown.expect(MoonFail.class);
+        Optional<Moon> NewMoon = DaoObject.createMoon(DAOInvalidName);
     }
 
     @Test
     public void RepoLayerInvalidOwnerId()
     {
         //Looking for unhandled MoonFail Exception with message "Invalid planet ID"
+        thrown.expect(MoonFail.class);
+        Optional<Moon> NewMoon = DaoObject.createMoon(DAOInvalidID);
     }
 
     @Test
