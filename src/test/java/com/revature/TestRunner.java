@@ -17,6 +17,12 @@ public class TestRunner
     @BeforeClass
     public static void setup()
     {
+        //Add logic for setup (i.e setup-reset.sql)
+    }
 
+    @AfterClass
+    public static void tearDown()
+    {
+        //Reset everything here as needed
     }
 }
