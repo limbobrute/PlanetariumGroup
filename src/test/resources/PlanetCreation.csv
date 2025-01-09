@@ -1,0 +1,6 @@
+planetName,ownerId,imageData,expectedMessage
+thisisthirtylettersthatsinvalid,0,Invalid planet name
+,0,,Invalid planet name
+!,0,Invalid planet name
+Earth,0,Invalid planet name
+eternal atake,0,invalidBase64MP4,Invalid file type
