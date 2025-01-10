@@ -39,6 +39,7 @@ public class PlanetCreationDaoTest
 
         /*Test Planet data for the Repository Layer*/
         DAOTestPlanet.setPlanetName("DAOTestPlanet");
+        DAOTestPlanet.setOwnerId(1);
         DAOInvalidName.setPlanetName("DAOTestPlanet!");
         DAOTooManyCharacters.setPlanetName("DAOTestPlanetwithfartoomanycharacterswhowoulddothis");
         DAONonUniqueName.setPlanetName("Earth");
@@ -55,6 +56,7 @@ public class PlanetCreationDaoTest
     {
         //Looking for Optional object that contains a Planet object with a unique planetID
         Optional<Planet> NewPlanet = PlanetDao.createPlanet(DAOTestPlanet);
+        Assert.assertTrue(NewPlanet.isPresent());
     }
 
     @Test
