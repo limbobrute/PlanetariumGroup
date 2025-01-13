@@ -2,6 +2,8 @@ package com.revature.tests.service.planet;
 
 import com.revature.planetarium.entities.Planet;
 import com.revature.planetarium.exceptions.PlanetFail;
+import com.revature.planetarium.repository.planet.PlanetDao;
+import com.revature.planetarium.service.planet.PlanetService;
 import com.revature.planetarium.service.planet.PlanetServiceImp;
 import com.revature.planetarium.repository.planet.PlanetDaoImp;
 import com.revature.utils.Setup;
@@ -13,10 +15,12 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mockito;
 
+import java.util.Optional;
+
 public class PlanetCreationServiceTest
 {
-    PlanetDaoImp PlanetDao;
-    PlanetServiceImp PlanetService;
+    PlanetDao PlanetDao;
+    PlanetService PlanetService;
     String jpgFile = "";
     String webpFile = "";
 
@@ -25,6 +29,8 @@ public class PlanetCreationServiceTest
     Planet ServiceTooManyCharacters = new Planet();
     Planet ServiceNonUniqueName = new Planet();
     Planet ServiceBadImage = new Planet();
+
+    Planet MockPlanet = new Planet();
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -44,7 +50,7 @@ public class PlanetCreationServiceTest
         ServiceTestPlanet.setOwnerId(1);
         ServiceInvalidName.setPlanetName("ServiceTestPlanet!");
         ServiceTooManyCharacters.setPlanetName("ServiceTestPlanetwithfartoomanycharacterswhowoulddothis");
-        ServiceNonUniqueName.setPlanetName("Titan");
+        ServiceNonUniqueName.setPlanetName("Earth");
 
         ServiceTestPlanet.setImageData(jpgFile);
         ServiceBadImage.setImageData(webpFile);
@@ -56,22 +62,25 @@ public class PlanetCreationServiceTest
     public void ServiceLayerCreatePlanetSuccess()
     {
         //Looking for boolean primitive set to TRUE
+        Mockito.when(PlanetDao.createPlanet(ServiceTestPlanet)).thenReturn(Optional.ofNullable(MockPlanet));
         Planet NewPlanet = PlanetService.createPlanet(ServiceTestPlanet);
-        Assert.assertEquals(2, NewPlanet.getPlanetId());
+        Assert.assertEquals(0, NewPlanet.getPlanetId());
     }
 
     @Test
     public void ServiceLayerNonUniquePlanetName()
     {
         //Looking for unhandled PlanetFail Exception with message "Invalid planet name"
+        Mockito.when(PlanetDao.createPlanet(ServiceTestPlanet)).thenReturn(Optional.ofNullable(MockPlanet));
         thrown.expect(PlanetFail.class);
         thrown.expectMessage("unique name fail");
-        Planet NewPlanet = PlanetService.createPlanet(ServiceTestPlanet);
+        Planet NewPlanet = PlanetService.createPlanet(ServiceNonUniqueName);
     }
 
     @Test
     public void ServiceLayerInvalidPlanetName()
     {
+        Mockito.when(PlanetDao.createPlanet(ServiceTestPlanet)).thenReturn(Optional.ofNullable(MockPlanet));
         thrown.expect(PlanetFail.class);
         thrown.expectMessage("Invalid characters");
         Planet NewPlanet = PlanetService.createPlanet(ServiceInvalidName);
@@ -80,6 +89,7 @@ public class PlanetCreationServiceTest
     @Test
     public void ServiceLayerTooManyCharacters()
     {
+        Mockito.when(PlanetDao.createPlanet(ServiceTestPlanet)).thenReturn(Optional.ofNullable(MockPlanet));
         thrown.expect(PlanetFail.class);
         thrown.expectMessage("character length fail");
         Planet NewPlanet = PlanetService.createPlanet(ServiceTooManyCharacters);
@@ -89,6 +99,7 @@ public class PlanetCreationServiceTest
     public void ServiceLayerInvalidImagePlanet()
     {
         //Looking for unhandled PlanetFail Exception with message "Invalid file type"
+        Mockito.when(PlanetDao.createPlanet(ServiceTestPlanet)).thenReturn(Optional.ofNullable(MockPlanet));
         thrown.expect(PlanetFail.class);
         thrown.expectMessage("Invalid file type");
         Planet NewPlanet = PlanetService.createPlanet(ServiceBadImage);
