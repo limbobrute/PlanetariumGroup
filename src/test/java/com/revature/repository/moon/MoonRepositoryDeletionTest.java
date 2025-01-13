@@ -9,7 +9,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MoonDeletionTest {
+public class MoonRepositoryDeletionTest {
 
     private MoonDao moonDao;
     private String positiveMoon;

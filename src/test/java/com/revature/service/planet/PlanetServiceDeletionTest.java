@@ -10,9 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import java.util.ArrayList;
-
-public class PlanetDeletionTest {
+public class PlanetServiceDeletionTest {
 
     private PlanetDao planetDao;
     private PlanetService planetService;
