@@ -1,7 +1,6 @@
 package com.revature.repository.planet;
 
 import com.revature.planetarium.entities.Moon;
-import com.revature.planetarium.entities.User;
 import com.revature.planetarium.exceptions.PlanetFail;
 import com.revature.planetarium.repository.moon.MoonDao;
 import com.revature.planetarium.repository.moon.MoonDaoImp;
@@ -10,12 +9,11 @@ import com.revature.planetarium.repository.planet.PlanetDaoImp;
 import com.revature.utils.Setup;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.Optional;
 
-public class PlanetDeletionTest {
+public class PlanetRepositoryDeletionTest {
 
     private PlanetDao planetDao;
     private MoonDao moonDao;
