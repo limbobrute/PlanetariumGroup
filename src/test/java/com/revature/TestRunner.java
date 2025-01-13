@@ -1,19 +1,24 @@
 package com.revature;
 
+import com.revature.tests.MoonCreationDaoTest;
+import com.revature.tests.MoonCreationServiceTest;
+import com.revature.tests.PlanetCreationDaoTest;
+import com.revature.tests.PlanetCreationServiceTest;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.runner.RunWith;
 
-@RunWith(Cucumber.class)
+
 @CucumberOptions(
         features = "classpath:features",
         glue = "com.revature.tests",
         plugin = {"pretty", "html:src/test/resources/reports/html-report.html", "json:src/test/resources/reports/json-report.json"}
 )
+
 public class TestRunner
 {
+
     @BeforeClass
     public static void setup()
     {
@@ -25,4 +30,5 @@ public class TestRunner
     {
         //Reset everything here as needed
     }
+
 }

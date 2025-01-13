@@ -3,6 +3,7 @@ package com.revature.tests;
 import com.revature.planetarium.entities.Moon;
 import com.revature.planetarium.exceptions.MoonFail;
 import com.revature.utils.Setup;
+import com.revature.utils.FileEncoder;
 import com.revature.planetarium.repository.moon.MoonDaoImp;
 import com.revature.planetarium.service.moon.MoonServiceImp;
 import org.junit.Before;
@@ -10,15 +11,18 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.Assert;
 import org.junit.rules.ExpectedException;
-import org.sqlite.SQLiteException;
+import org.mockito.Mockito;
 
 import java.util.Optional;
 
-public class MoonCreationTest
+public class MoonCreationServiceTest
 {
     MoonDaoImp DaoObject;
     MoonServiceImp MoonService;
-    /*Test Moon variables for the Service Layer*/
+
+    String jpgFile = "";
+    String webpFile = "";
+
     Moon ServiceTestMoon;
     Moon InvalidName;
     Moon TooManyCharacters;
@@ -26,45 +30,40 @@ public class MoonCreationTest
     Moon NonUniqueName;
     Moon BadImage;
 
-    /*Test Moon variables for the Repository Lyaer*/
-    Moon DAOTestMoon;
-    Moon DAOInvalidName;
-    Moon DAOInvalidID;
-    Moon DAOBadImage;
-
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
     @Before
     public void Setup()
     {
-        DaoObject = new MoonDaoImp();
+        DaoObject = Mockito.mock(MoonDaoImp.class);
         MoonService = new MoonServiceImp(DaoObject);
-        /*Test Moon data for the Service Layer*/
+
+        String jpg = "src\\test\\resources\\Celestial-Images\\moons-1.jpg";
+        String webp = "src\\test\\resources\\Celestial-Images\\Testwebp.webp";
+        jpgFile = FileEncoder.encoder(jpg);
+        webpFile = FileEncoder.encoder(webp);
+
         ServiceTestMoon = new Moon(0, "Test", 1);
         InvalidName = new Moon(0, "Test!!", 1);
         TooManyCharacters = new Moon(0, "thisissomanycharacterswhyisthisresitrctioninplace",1);
         InvalidPlanetId = new Moon(0, "BadId", 0);
         NonUniqueName = new Moon(0, "Titan", 1);
         BadImage = new Moon(0, "BadImage", 1);
-        BadImage.setImageData(null);//Need to find a way to have this be garbage
+        ServiceTestMoon.setImageData(jpgFile);
+        BadImage.setImageData(webpFile);
 
-        /*Test Moon data for the Repository Layer*/
-        DAOTestMoon = new Moon(0, "DAOtest", 1);
-        DAOInvalidName = new Moon(0, "DAOtest!", 1);
-        DAOInvalidID = new Moon(0, "DAOBadId", 0);
-        DAOBadImage = new Moon(0, "DAOBadImage", 1);
-        DAOBadImage.setImageData(null);//Need to find a way to have this be garbage
         Setup.resetTestDatabase();
     }
 
-    //Service Layer Tests
     @Test
     public void ServiceLayerMoonCreationSuccess()
     {
         //Looking for boolean primitive set to TRUE
         Moon NewMoon = MoonService.createMoon(ServiceTestMoon);
         Assert.assertEquals(3,NewMoon.getMoonId());
+        /*boolean check = MoonService.createMoon(ServiceTestMoon);
+        Assert.assertTrue(true, check);*/
     }
 
     @Test
@@ -79,6 +78,7 @@ public class MoonCreationTest
     public void ServiceLayerInvalidMoonName()
     {
         thrown.expect(MoonFail.class);
+        thrown.expectMessage("Invalid moon name");
         Moon NewMoon = MoonService.createMoon(InvalidName);
     }
 
@@ -97,36 +97,8 @@ public class MoonCreationTest
     public void ServiceLayerInvalidMoonImage()
     {
         //Looking for unhandled MoonFail Exception with message "Invalid file type"
-    }
-
-    //Repository Layer Tests
-    @Test
-    public void RepoLayerMoonCreationSuccess()
-    {
-        //Looking for Optional object that contains a Moon object with a unique moonId
-        Optional<Moon> NewMoon = DaoObject.createMoon(DAOTestMoon);
-        Assert.assertTrue(NewMoon.isPresent());
-    }
-
-    @Test
-    public void RepoLayerInvalidMoonName()
-    {
-        //Looking for unhandled MoonFail Exception with message "Invalid moon name"
         thrown.expect(MoonFail.class);
-        Optional<Moon> NewMoon = DaoObject.createMoon(DAOInvalidName);
-    }
-
-    @Test
-    public void RepoLayerInvalidOwnerId()
-    {
-        //Looking for unhandled MoonFail Exception with message "Invalid planet ID"
-        thrown.expect(MoonFail.class);
-        Optional<Moon> NewMoon = DaoObject.createMoon(DAOInvalidID);
-    }
-
-    @Test
-    public void RepoLayerInvalidMoonImage()
-    {
-        //Looking for unhandled MoonFail Exception with message "Invalid file type"
+        thrown.expectMessage("Invalid file type");
+        Moon NewMoon = MoonService.createMoon(BadImage);
     }
 }
