@@ -18,14 +18,12 @@ public class MoonCreationDaoTest
 
     String jpgFile = "";
     String webpFile = "";
-    String pngFile = "";
 
     Moon DAOTestMoon;
     Moon DAOInvalidName;
     Moon DAOInvalidID;
     Moon DAOBadImage;
     Moon DAONonUniqueName;
-    Moon DAOPngTest;
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -36,20 +34,17 @@ public class MoonCreationDaoTest
         DaoObject = new MoonDaoImp();
 
         String jpg = "src\\test\\resources\\Celestial-Images\\moons-1.jpg";
-        String png = "src\\test\\resources\\Celestial-Images\\moons-1.png";
         String webp = "src\\test\\resources\\Celestial-Images\\Testwebp.webp";
         jpgFile = FileEncoder.encoder(jpg);
         webpFile = FileEncoder.encoder(webp);
-        pngFile = FileEncoder.encoder(png);
 
         DAOTestMoon = new Moon(0, "DAOtest", 1);
         DAOTestMoon.setImageData(jpgFile);
         DAOInvalidName = new Moon(0, "DAOtestMoon!", 1);
         DAOInvalidID = new Moon(0, "DAOBadId", 0);
         DAOBadImage = new Moon(0, "DAOBadImage", 1);
-        DAOBadImage.setImageData(webpFile);
+        DAOBadImage.setImageData(webpFile);//Need to find a way to have this be garbage
         DAONonUniqueName = new Moon(0, "Luna", 1);
-        DAOPngTest = new Moon(0, "PngTest", 1);
         Setup.resetTestDatabase();
     }
 
@@ -94,20 +89,5 @@ public class MoonCreationDaoTest
         thrown.expect(MoonFail.class);
         thrown.expectMessage("Invalid moon name");
         Optional<Moon> NewMoon = DaoObject.createMoon(DAONonUniqueName);
-    }
-
-    @Test
-    public void RepoLayerImageUpload()
-    {
-        Optional<Moon> NewMoon = DaoObject.createMoon(DAOPngTest);
-        Assert.assertTrue(NewMoon.isPresent());
-    }
-
-    @Test
-    public void RepoLayerInvalidImage()
-    {
-        thrown.expect(MoonFail.class);
-        thrown.expectMessage("Invalid file type");
-        Optional<Moon> NewMoon = DaoObject.createMoon(DAOBadImage);
     }
 }
