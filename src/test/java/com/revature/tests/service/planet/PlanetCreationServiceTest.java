@@ -72,6 +72,7 @@ public class PlanetCreationServiceTest
     {
         //Looking for unhandled PlanetFail Exception with message "Invalid planet name"
         Mockito.when(PlanetDao.createPlanet(ServiceNonUniqueName)).thenReturn(Optional.ofNullable(MockPlanet));
+        Mockito.when(PlanetDao.readPlanet(ServiceNonUniqueName.getPlanetName())).thenReturn(Optional.ofNullable(MockPlanet));
         thrown.expect(PlanetFail.class);
         thrown.expectMessage("unique name fail");
         Planet NewPlanet = PlanetService.createPlanet(ServiceNonUniqueName);
