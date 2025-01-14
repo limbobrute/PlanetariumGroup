@@ -24,7 +24,7 @@ public class PlanetCreationDaoTest
     Planet DAOTooManyCharacters = new Planet();
     Planet DAONonUniqueName = new Planet();
     Planet DAOBadImage = new Planet();
-    Planet DAOPngTest;
+    Planet DAOPngTest = new Planet();
 
 
     @Rule

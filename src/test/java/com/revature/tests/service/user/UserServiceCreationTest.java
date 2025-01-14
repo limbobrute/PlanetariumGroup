@@ -2,6 +2,7 @@ package com.revature.tests.service.user;
 
 import com.revature.planetarium.entities.User;
 import com.revature.planetarium.exceptions.UserFail;
+import com.revature.planetarium.repository.user.UserDao;
 import com.revature.planetarium.repository.user.UserDaoImp;
 import com.revature.planetarium.service.user.UserServiceImp;
 import com.revature.utils.Setup;
