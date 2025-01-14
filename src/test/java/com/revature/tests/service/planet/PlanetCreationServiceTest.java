@@ -15,7 +15,6 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mockito;
 
-import java.security.Provider;
 import java.util.Optional;
 
 public class PlanetCreationServiceTest
@@ -63,12 +62,9 @@ public class PlanetCreationServiceTest
     public void ServiceLayerCreatePlanetSuccess()
     {
         //Looking for boolean primitive set to TRUE
-        MockPlanet.setPlanetName("ServiceTestPlanet");
-        MockPlanet.setOwnerId(1);
-        MockPlanet.setPlanetId(3);
         Mockito.when(PlanetDao.createPlanet(ServiceTestPlanet)).thenReturn(Optional.ofNullable(MockPlanet));
         Planet NewPlanet = PlanetService.createPlanet(ServiceTestPlanet);
-        Assert.assertEquals(3, NewPlanet.getPlanetId());
+        Assert.assertEquals(0, NewPlanet.getPlanetId());
     }
 
     @Test
@@ -78,16 +74,16 @@ public class PlanetCreationServiceTest
         Mockito.when(PlanetDao.createPlanet(ServiceNonUniqueName)).thenReturn(Optional.ofNullable(MockPlanet));
         Mockito.when(PlanetDao.readPlanet(ServiceNonUniqueName.getPlanetName())).thenReturn(Optional.ofNullable(MockPlanet));
         thrown.expect(PlanetFail.class);
-        thrown.expectMessage("Invalid planet name");
+        thrown.expectMessage("unique name fail");
         Planet NewPlanet = PlanetService.createPlanet(ServiceNonUniqueName);
     }
 
     @Test
     public void ServiceLayerInvalidPlanetName()
     {
-        Mockito.when(PlanetDao.createPlanet(ServiceInvalidName)).thenReturn(Optional.empty());
+        Mockito.when(PlanetDao.createPlanet(ServiceInvalidName)).thenReturn(Optional.ofNullable(MockPlanet));
         thrown.expect(PlanetFail.class);
-        thrown.expectMessage("Invalid planet name");
+        thrown.expectMessage("Invalid characters");
         Planet NewPlanet = PlanetService.createPlanet(ServiceInvalidName);
     }
 
@@ -96,7 +92,7 @@ public class PlanetCreationServiceTest
     {
         Mockito.when(PlanetDao.createPlanet(ServiceTooManyCharacters)).thenReturn(Optional.ofNullable(MockPlanet));
         thrown.expect(PlanetFail.class);
-        thrown.expectMessage("Invalid planet name");
+        thrown.expectMessage("character length fail");
         Planet NewPlanet = PlanetService.createPlanet(ServiceTooManyCharacters);
     }
 
@@ -104,9 +100,7 @@ public class PlanetCreationServiceTest
     public void ServiceLayerInvalidImagePlanet()
     {
         //Looking for unhandled PlanetFail Exception with message "Invalid file type"
-        ServiceBadImage.setPlanetId(3);
-        ServiceBadImage.setPlanetName("ServiceBadImage");
-        Mockito.when(PlanetDao.createPlanet(ServiceBadImage)).thenReturn(Optional.empty());
+        Mockito.when(PlanetDao.createPlanet(ServiceBadImage)).thenReturn(Optional.ofNullable(MockPlanet));
         thrown.expect(PlanetFail.class);
         thrown.expectMessage("Invalid file type");
         Planet NewPlanet = PlanetService.createPlanet(ServiceBadImage);
