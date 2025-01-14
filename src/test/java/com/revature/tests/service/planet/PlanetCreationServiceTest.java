@@ -15,6 +15,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mockito;
 
+import java.security.Provider;
 import java.util.Optional;
 
 public class PlanetCreationServiceTest
@@ -23,12 +24,14 @@ public class PlanetCreationServiceTest
     PlanetService PlanetService;
     String jpgFile = "";
     String webpFile = "";
+    String pngFile = "";
 
     Planet ServiceTestPlanet = new Planet();
     Planet ServiceInvalidName = new Planet();
     Planet ServiceTooManyCharacters = new Planet();
     Planet ServiceNonUniqueName = new Planet();
     Planet ServiceBadImage = new Planet();
+    Planet ServicePngTest = new Planet();
 
     Planet MockPlanet = new Planet();
 
@@ -43,18 +46,22 @@ public class PlanetCreationServiceTest
 
         String jpg = "src\\test\\resources\\Celestial-Images\\moons-1.jpg";
         String webp = "src\\test\\resources\\Celestial-Images\\Testwebp.webp";
+        String png = "src\\test\\resources\\Celestial-Images\\moons-1.png";
         jpgFile = FileEncoder.encoder(jpg);
         webpFile = FileEncoder.encoder(webp);
+        pngFile = FileEncoder.encoder(png);
 
         ServiceTestPlanet.setPlanetName("ServiceTestPlanet");
         ServiceTestPlanet.setOwnerId(1);
         ServiceInvalidName.setPlanetName("ServiceTestPlanet!");
         ServiceTooManyCharacters.setPlanetName("ServiceTestPlanetwithfartoomanycharacterswhowoulddothis");
         ServiceNonUniqueName.setPlanetName("Earth");
+        ServicePngTest.setPlanetName("PngTest");
+        ServicePngTest.setOwnerId(1);
 
         ServiceTestPlanet.setImageData(jpgFile);
         ServiceBadImage.setImageData(webpFile);
-
+        ServicePngTest.setImageData(pngFile);
         Setup.resetTestDatabase();
     }
 
@@ -62,9 +69,12 @@ public class PlanetCreationServiceTest
     public void ServiceLayerCreatePlanetSuccess()
     {
         //Looking for boolean primitive set to TRUE
+        MockPlanet.setPlanetName("ServiceTestPlanet");
+        MockPlanet.setOwnerId(1);
+        MockPlanet.setPlanetId(3);
         Mockito.when(PlanetDao.createPlanet(ServiceTestPlanet)).thenReturn(Optional.ofNullable(MockPlanet));
         Planet NewPlanet = PlanetService.createPlanet(ServiceTestPlanet);
-        Assert.assertEquals(0, NewPlanet.getPlanetId());
+        Assert.assertEquals(3, NewPlanet.getPlanetId());
     }
 
     @Test
@@ -74,16 +84,16 @@ public class PlanetCreationServiceTest
         Mockito.when(PlanetDao.createPlanet(ServiceNonUniqueName)).thenReturn(Optional.ofNullable(MockPlanet));
         Mockito.when(PlanetDao.readPlanet(ServiceNonUniqueName.getPlanetName())).thenReturn(Optional.ofNullable(MockPlanet));
         thrown.expect(PlanetFail.class);
-        thrown.expectMessage("unique name fail");
+        thrown.expectMessage("Invalid planet name");
         Planet NewPlanet = PlanetService.createPlanet(ServiceNonUniqueName);
     }
 
     @Test
     public void ServiceLayerInvalidPlanetName()
     {
-        Mockito.when(PlanetDao.createPlanet(ServiceInvalidName)).thenReturn(Optional.ofNullable(MockPlanet));
+        Mockito.when(PlanetDao.createPlanet(ServiceInvalidName)).thenReturn(Optional.empty());
         thrown.expect(PlanetFail.class);
-        thrown.expectMessage("Invalid characters");
+        thrown.expectMessage("Invalid planet name");
         Planet NewPlanet = PlanetService.createPlanet(ServiceInvalidName);
     }
 
@@ -92,15 +102,32 @@ public class PlanetCreationServiceTest
     {
         Mockito.when(PlanetDao.createPlanet(ServiceTooManyCharacters)).thenReturn(Optional.ofNullable(MockPlanet));
         thrown.expect(PlanetFail.class);
-        thrown.expectMessage("character length fail");
+        thrown.expectMessage("Invalid planet name");
         Planet NewPlanet = PlanetService.createPlanet(ServiceTooManyCharacters);
     }
+
+    @Test
+    public void ServiceLayerPngTest()
+    {
+        MockPlanet.setOwnerId(1);
+        MockPlanet.setPlanetName("PngTest");
+        MockPlanet.setImageData(pngFile);
+        MockPlanet.setPlanetId(3);
+        
+        Mockito.when(PlanetDao.createPlanet(ServicePngTest)).thenReturn(Optional.ofNullable(MockPlanet));
+        Planet NewPlanet = PlanetService.createPlanet(ServicePngTest);
+
+        Assert.assertEquals(3, NewPlanet.getPlanetId());
+    }
+
 
     @Test
     public void ServiceLayerInvalidImagePlanet()
     {
         //Looking for unhandled PlanetFail Exception with message "Invalid file type"
-        Mockito.when(PlanetDao.createPlanet(ServiceBadImage)).thenReturn(Optional.ofNullable(MockPlanet));
+        ServiceBadImage.setPlanetId(3);
+        ServiceBadImage.setPlanetName("ServiceBadImage");
+        Mockito.when(PlanetDao.createPlanet(ServiceBadImage)).thenReturn(Optional.empty());
         thrown.expect(PlanetFail.class);
         thrown.expectMessage("Invalid file type");
         Planet NewPlanet = PlanetService.createPlanet(ServiceBadImage);

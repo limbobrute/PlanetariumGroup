@@ -24,6 +24,7 @@ public class MoonCreationServiceTest
 
     String jpgFile = "";
     String webpFile = "";
+    String pngFile;
 
     Moon ServiceTestMoon;
     Moon InvalidName;
@@ -31,6 +32,7 @@ public class MoonCreationServiceTest
     Moon InvalidPlanetId;
     Moon NonUniqueName;
     Moon BadImage;
+    Moon PngTest;
 
     //Moon MockMoon;
 
@@ -45,8 +47,10 @@ public class MoonCreationServiceTest
 
         String jpg = "src\\test\\resources\\Celestial-Images\\moons-1.jpg";
         String webp = "src\\test\\resources\\Celestial-Images\\Testwebp.webp";
+        String png = "src\\test\\resources\\Celestial-Images\\moons-1.png";
         jpgFile = FileEncoder.encoder(jpg);
         webpFile = FileEncoder.encoder(webp);
+        pngFile = FileEncoder.encoder(png);
 
         ServiceTestMoon = new Moon(0, "ServiceTestMoon", 1);
         InvalidName = new Moon(0, "Test!!", 1);
@@ -54,7 +58,9 @@ public class MoonCreationServiceTest
         InvalidPlanetId = new Moon(0, "BadId", 0);
         NonUniqueName = new Moon(0, "Titan", 1);
         BadImage = new Moon(0, "BadImage", 1);
-        //MockMoon = new Moon(3, "", 1);
+        PngTest = new Moon(0, "PngTest", 1);
+
+        PngTest.setImageData(pngFile);
         ServiceTestMoon.setImageData(jpgFile);
         BadImage.setImageData(webpFile);
 
@@ -76,7 +82,7 @@ public class MoonCreationServiceTest
     {
         Moon MockMoon = new Moon(0, "Titan", 1);
         thrown.expect(MoonFail.class);
-        thrown.expectMessage("unique name fail");
+        thrown.expectMessage("Invalid moon name");
         Mockito.when(DaoObject.createMoon(NonUniqueName)).thenReturn(Optional.ofNullable(MockMoon));
         Mockito.when(DaoObject.readMoon(MockMoon.getMoonName())).thenReturn(Optional.ofNullable(MockMoon));
         Moon NewMoon = MoonService.createMoon(NonUniqueName);
@@ -88,7 +94,7 @@ public class MoonCreationServiceTest
         Moon MockMoon = new Moon (0, "Test!!!", 1);
         thrown.expect(MoonFail.class);
         thrown.expectMessage("Invalid moon name");
-        Mockito.when(DaoObject.createMoon(InvalidName)).thenReturn(Optional.ofNullable(MockMoon));
+        Mockito.when(DaoObject.createMoon(InvalidName)).thenReturn(Optional.empty());
         Moon NewMoon = MoonService.createMoon(InvalidName);
     }
 
@@ -98,12 +104,22 @@ public class MoonCreationServiceTest
         //Looking for unhandled MoonFail Exception with message "character length fail"
         Moon MockMoon = new Moon(0, "thisissomanycharacterswhyisthisresitrctioninplace", 1);
         thrown.expect(MoonFail.class);
-        thrown.expectMessage("character length fail");
+        thrown.expectMessage("Invalid moon name");
         Mockito.when(DaoObject.createMoon(TooManyCharacters)).thenReturn(Optional.ofNullable(MockMoon));
         Moon NewMoon = MoonService.createMoon(TooManyCharacters);
 
     }
 
+    @Test
+    public void ServiceLayerPngTest()
+    {
+        Moon MockMoon = new Moon(0, "PngTest", 1);
+        MockMoon.setImageData(pngFile);
+        Mockito.when(DaoObject.createMoon(PngTest)).thenReturn(Optional.ofNullable(MockMoon));
+
+        Optional<Moon> NewMoon = DaoObject.createMoon(PngTest);
+        Assert.assertTrue(NewMoon.isPresent());
+    }
 
     @Test
     public void ServiceLayerInvalidMoonImage()
@@ -115,5 +131,15 @@ public class MoonCreationServiceTest
         thrown.expectMessage("Invalid file type");
         Mockito.when(DaoObject.createMoon(BadImage)).thenReturn(Optional.ofNullable(MockMoon));
         Moon NewMoon = MoonService.createMoon(BadImage);
+    }
+
+    @Test
+    public void ServiceLayerInvalidPlanetId()
+    {
+        //Looking for unhandled MoonFail Exception with message "Invalid file type"
+        thrown.expect(MoonFail.class);
+        thrown.expectMessage("Invalid planet id");
+        Mockito.when(DaoObject.createMoon(InvalidPlanetId)).thenReturn(Optional.empty());
+        Moon NewMoon = MoonService.createMoon(InvalidPlanetId);
     }
 }
