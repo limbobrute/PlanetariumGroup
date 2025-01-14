@@ -71,7 +71,7 @@ public class PlanetCreationServiceTest
     public void ServiceLayerNonUniquePlanetName()
     {
         //Looking for unhandled PlanetFail Exception with message "Invalid planet name"
-        Mockito.when(PlanetDao.createPlanet(ServiceTestPlanet)).thenReturn(Optional.ofNullable(MockPlanet));
+        Mockito.when(PlanetDao.createPlanet(ServiceNonUniqueName)).thenReturn(Optional.ofNullable(MockPlanet));
         thrown.expect(PlanetFail.class);
         thrown.expectMessage("unique name fail");
         Planet NewPlanet = PlanetService.createPlanet(ServiceNonUniqueName);
@@ -80,7 +80,7 @@ public class PlanetCreationServiceTest
     @Test
     public void ServiceLayerInvalidPlanetName()
     {
-        Mockito.when(PlanetDao.createPlanet(ServiceTestPlanet)).thenReturn(Optional.ofNullable(MockPlanet));
+        Mockito.when(PlanetDao.createPlanet(ServiceInvalidName)).thenReturn(Optional.ofNullable(MockPlanet));
         thrown.expect(PlanetFail.class);
         thrown.expectMessage("Invalid characters");
         Planet NewPlanet = PlanetService.createPlanet(ServiceInvalidName);
@@ -89,7 +89,7 @@ public class PlanetCreationServiceTest
     @Test
     public void ServiceLayerTooManyCharacters()
     {
-        Mockito.when(PlanetDao.createPlanet(ServiceTestPlanet)).thenReturn(Optional.ofNullable(MockPlanet));
+        Mockito.when(PlanetDao.createPlanet(ServiceTooManyCharacters)).thenReturn(Optional.ofNullable(MockPlanet));
         thrown.expect(PlanetFail.class);
         thrown.expectMessage("character length fail");
         Planet NewPlanet = PlanetService.createPlanet(ServiceTooManyCharacters);
@@ -99,7 +99,7 @@ public class PlanetCreationServiceTest
     public void ServiceLayerInvalidImagePlanet()
     {
         //Looking for unhandled PlanetFail Exception with message "Invalid file type"
-        Mockito.when(PlanetDao.createPlanet(ServiceTestPlanet)).thenReturn(Optional.ofNullable(MockPlanet));
+        Mockito.when(PlanetDao.createPlanet(ServiceBadImage)).thenReturn(Optional.ofNullable(MockPlanet));
         thrown.expect(PlanetFail.class);
         thrown.expectMessage("Invalid file type");
         Planet NewPlanet = PlanetService.createPlanet(ServiceBadImage);

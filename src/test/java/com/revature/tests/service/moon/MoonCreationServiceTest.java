@@ -2,6 +2,8 @@ package com.revature.tests.service.moon;
 
 import com.revature.planetarium.entities.Moon;
 import com.revature.planetarium.exceptions.MoonFail;
+import com.revature.planetarium.repository.moon.MoonDao;
+import com.revature.planetarium.service.moon.MoonService;
 import com.revature.utils.Setup;
 import com.revature.utils.FileEncoder;
 import com.revature.planetarium.repository.moon.MoonDaoImp;
@@ -13,10 +15,12 @@ import org.junit.Assert;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mockito;
 
+import java.util.Optional;
+
 public class MoonCreationServiceTest
 {
-    MoonDaoImp DaoObject;
-    MoonServiceImp MoonService;
+    MoonDao DaoObject;
+    MoonService MoonService;
 
     String jpgFile = "";
     String webpFile = "";
@@ -27,6 +31,8 @@ public class MoonCreationServiceTest
     Moon InvalidPlanetId;
     Moon NonUniqueName;
     Moon BadImage;
+
+    Moon MockMoon;
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -42,7 +48,7 @@ public class MoonCreationServiceTest
         jpgFile = FileEncoder.encoder(jpg);
         webpFile = FileEncoder.encoder(webp);
 
-        ServiceTestMoon = new Moon(0, "Test", 1);
+        ServiceTestMoon = new Moon(0, "ServiceTestMoon", 1);
         InvalidName = new Moon(0, "Test!!", 1);
         TooManyCharacters = new Moon(0, "thisissomanycharacterswhyisthisresitrctioninplace",1);
         InvalidPlanetId = new Moon(0, "BadId", 0);
@@ -58,10 +64,9 @@ public class MoonCreationServiceTest
     public void ServiceLayerMoonCreationSuccess()
     {
         //Looking for boolean primitive set to TRUE
+        Mockito.when(DaoObject.createMoon(ServiceTestMoon)).thenReturn(Optional.ofNullable(MockMoon));
         Moon NewMoon = MoonService.createMoon(ServiceTestMoon);
         Assert.assertEquals(3,NewMoon.getMoonId());
-        /*boolean check = MoonService.createMoon(ServiceTestMoon);
-        Assert.assertTrue(true, check);*/
     }
 
     @Test
@@ -69,6 +74,7 @@ public class MoonCreationServiceTest
     {
         thrown.expect(MoonFail.class);
         thrown.expectMessage("unique name fail");
+        Mockito.when(DaoObject.createMoon(NonUniqueName)).thenReturn(Optional.ofNullable(MockMoon));
         Moon NewMoon = MoonService.createMoon(NonUniqueName);
     }
 
@@ -77,6 +83,7 @@ public class MoonCreationServiceTest
     {
         thrown.expect(MoonFail.class);
         thrown.expectMessage("Invalid moon name");
+        Mockito.when(DaoObject.createMoon(InvalidName)).thenReturn(Optional.ofNullable(MockMoon));
         Moon NewMoon = MoonService.createMoon(InvalidName);
     }
 
@@ -86,6 +93,7 @@ public class MoonCreationServiceTest
         //Looking for unhandled MoonFail Exception with message "character length fail"
         thrown.expect(MoonFail.class);
         thrown.expectMessage("character length fail");
+        Mockito.when(DaoObject.createMoon(TooManyCharacters)).thenReturn(Optional.ofNullable(MockMoon));
         Moon NewMoon = MoonService.createMoon(TooManyCharacters);
 
     }
@@ -97,6 +105,7 @@ public class MoonCreationServiceTest
         //Looking for unhandled MoonFail Exception with message "Invalid file type"
         thrown.expect(MoonFail.class);
         thrown.expectMessage("Invalid file type");
+        Mockito.when(DaoObject.createMoon(BadImage)).thenReturn(Optional.ofNullable(MockMoon));
         Moon NewMoon = MoonService.createMoon(BadImage);
     }
 }
