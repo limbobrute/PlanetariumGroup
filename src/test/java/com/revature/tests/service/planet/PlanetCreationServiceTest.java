@@ -24,12 +24,14 @@ public class PlanetCreationServiceTest
     PlanetService PlanetService;
     String jpgFile = "";
     String webpFile = "";
+    String pngFile = "";
 
     Planet ServiceTestPlanet = new Planet();
     Planet ServiceInvalidName = new Planet();
     Planet ServiceTooManyCharacters = new Planet();
     Planet ServiceNonUniqueName = new Planet();
     Planet ServiceBadImage = new Planet();
+    Planet ServicePngTest = new Planet();
 
     Planet MockPlanet = new Planet();
 
@@ -44,18 +46,22 @@ public class PlanetCreationServiceTest
 
         String jpg = "src\\test\\resources\\Celestial-Images\\moons-1.jpg";
         String webp = "src\\test\\resources\\Celestial-Images\\Testwebp.webp";
+        String png = "src\\test\\resources\\Celestial-Images\\moons-1.png";
         jpgFile = FileEncoder.encoder(jpg);
         webpFile = FileEncoder.encoder(webp);
+        pngFile = FileEncoder.encoder(png);
 
         ServiceTestPlanet.setPlanetName("ServiceTestPlanet");
         ServiceTestPlanet.setOwnerId(1);
         ServiceInvalidName.setPlanetName("ServiceTestPlanet!");
         ServiceTooManyCharacters.setPlanetName("ServiceTestPlanetwithfartoomanycharacterswhowoulddothis");
         ServiceNonUniqueName.setPlanetName("Earth");
+        ServicePngTest.setPlanetName("PngTest");
+        ServicePngTest.setOwnerId(1);
 
         ServiceTestPlanet.setImageData(jpgFile);
         ServiceBadImage.setImageData(webpFile);
-
+        ServicePngTest.setImageData(pngFile);
         Setup.resetTestDatabase();
     }
 
@@ -99,6 +105,21 @@ public class PlanetCreationServiceTest
         thrown.expectMessage("Invalid planet name");
         Planet NewPlanet = PlanetService.createPlanet(ServiceTooManyCharacters);
     }
+
+    @Test
+    public void ServiceLayerPngTest()
+    {
+        MockPlanet.setOwnerId(1);
+        MockPlanet.setPlanetName("PngTest");
+        MockPlanet.setImageData(pngFile);
+        MockPlanet.setPlanetId(3);
+        
+        Mockito.when(PlanetDao.createPlanet(ServicePngTest)).thenReturn(Optional.ofNullable(MockPlanet));
+        Planet NewPlanet = PlanetService.createPlanet(ServicePngTest);
+
+        Assert.assertEquals(3, NewPlanet.getPlanetId());
+    }
+
 
     @Test
     public void ServiceLayerInvalidImagePlanet()
