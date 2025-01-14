@@ -2,6 +2,7 @@ package com.revature.tests.service.planet;
 
 import com.revature.planetarium.exceptions.PlanetFail;
 import com.revature.planetarium.repository.planet.PlanetDao;
+import com.revature.planetarium.repository.planet.PlanetDaoImp;
 import com.revature.planetarium.service.planet.PlanetService;
 import com.revature.planetarium.service.planet.PlanetServiceImp;
 import com.revature.utils.Setup;
@@ -19,7 +20,7 @@ public class PlanetServiceDeletionTest {
     @Before
     public void setup() {
         Setup.resetTestDatabase();
-        planetDao = Mockito.mock(PlanetDao.class);
+        planetDao = Mockito.mock(PlanetDaoImp.class);
         planetService = new PlanetServiceImp(planetDao);
         positivePlanet = "Earth";
         negativePlanet = "NotRealPlanet";
