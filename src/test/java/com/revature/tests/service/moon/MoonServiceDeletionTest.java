@@ -2,6 +2,7 @@ package com.revature.tests.service.moon;
 
 import com.revature.planetarium.exceptions.MoonFail;
 import com.revature.planetarium.repository.moon.MoonDao;
+import com.revature.planetarium.repository.moon.MoonDaoImp;
 import com.revature.planetarium.service.moon.MoonService;
 import com.revature.planetarium.service.moon.MoonServiceImp;
 import com.revature.utils.Setup;
@@ -19,7 +20,7 @@ public class MoonServiceDeletionTest {
     @Before
     public void setup() {
         Setup.resetTestDatabase();
-        moonDao = Mockito.mock(MoonDao.class);
+        moonDao = Mockito.mock(MoonDaoImp.class);
         moonService = new MoonServiceImp(moonDao);
         positiveMoon = "Luna";
         negativeMoon = "NotRealMoon";
