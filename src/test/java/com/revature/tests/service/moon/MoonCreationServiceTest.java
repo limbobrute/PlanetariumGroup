@@ -76,7 +76,7 @@ public class MoonCreationServiceTest
     {
         Moon MockMoon = new Moon(0, "Titan", 1);
         thrown.expect(MoonFail.class);
-        thrown.expectMessage("unique name fail");
+        thrown.expectMessage("Invalid moon name");
         Mockito.when(DaoObject.createMoon(NonUniqueName)).thenReturn(Optional.ofNullable(MockMoon));
         Mockito.when(DaoObject.readMoon(MockMoon.getMoonName())).thenReturn(Optional.ofNullable(MockMoon));
         Moon NewMoon = MoonService.createMoon(NonUniqueName);
@@ -88,7 +88,7 @@ public class MoonCreationServiceTest
         Moon MockMoon = new Moon (0, "Test!!!", 1);
         thrown.expect(MoonFail.class);
         thrown.expectMessage("Invalid moon name");
-        Mockito.when(DaoObject.createMoon(InvalidName)).thenReturn(Optional.ofNullable(MockMoon));
+        Mockito.when(DaoObject.createMoon(InvalidName)).thenReturn(Optional.empty());
         Moon NewMoon = MoonService.createMoon(InvalidName);
     }
 
@@ -98,7 +98,7 @@ public class MoonCreationServiceTest
         //Looking for unhandled MoonFail Exception with message "character length fail"
         Moon MockMoon = new Moon(0, "thisissomanycharacterswhyisthisresitrctioninplace", 1);
         thrown.expect(MoonFail.class);
-        thrown.expectMessage("character length fail");
+        thrown.expectMessage("Invalid moon name");
         Mockito.when(DaoObject.createMoon(TooManyCharacters)).thenReturn(Optional.ofNullable(MockMoon));
         Moon NewMoon = MoonService.createMoon(TooManyCharacters);
 
@@ -115,5 +115,15 @@ public class MoonCreationServiceTest
         thrown.expectMessage("Invalid file type");
         Mockito.when(DaoObject.createMoon(BadImage)).thenReturn(Optional.ofNullable(MockMoon));
         Moon NewMoon = MoonService.createMoon(BadImage);
+    }
+
+    @Test
+    public void ServiceLayerInvalidPlanetId()
+    {
+        //Looking for unhandled MoonFail Exception with message "Invalid file type"
+        thrown.expect(MoonFail.class);
+        thrown.expectMessage("Invalid planet id");
+        Mockito.when(DaoObject.createMoon(InvalidPlanetId)).thenReturn(Optional.empty());
+        Moon NewMoon = MoonService.createMoon(InvalidPlanetId);
     }
 }

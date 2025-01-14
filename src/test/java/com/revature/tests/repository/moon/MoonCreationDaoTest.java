@@ -23,6 +23,7 @@ public class MoonCreationDaoTest
     Moon DAOInvalidName;
     Moon DAOInvalidID;
     Moon DAOBadImage;
+    Moon DAONonUniqueName;
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -43,6 +44,7 @@ public class MoonCreationDaoTest
         DAOInvalidID = new Moon(0, "DAOBadId", 0);
         DAOBadImage = new Moon(0, "DAOBadImage", 1);
         DAOBadImage.setImageData(webpFile);//Need to find a way to have this be garbage
+        DAONonUniqueName = new Moon(0, "Luna", 1);
         Setup.resetTestDatabase();
     }
 
@@ -60,6 +62,7 @@ public class MoonCreationDaoTest
     {
         //Looking for unhandled MoonFail Exception with message "Invalid moon name"
         thrown.expect(MoonFail.class);
+        thrown.expectMessage("Invalid moon name");
         Optional<Moon> NewMoon = DaoObject.createMoon(DAOInvalidName);
     }
 
@@ -68,6 +71,7 @@ public class MoonCreationDaoTest
     {
         //Looking for unhandled MoonFail Exception with message "Invalid planet ID"
         thrown.expect(MoonFail.class);
+        thrown.expectMessage("Invalid planet ID");
         Optional<Moon> NewMoon = DaoObject.createMoon(DAOInvalidID);
     }
 
@@ -77,5 +81,13 @@ public class MoonCreationDaoTest
         thrown.expect(MoonFail.class);
         thrown.expectMessage("Invalid file type");
         Optional<Moon> NewMoon = DaoObject.createMoon(DAOBadImage);
+    }
+
+    @Test
+    public void RepoLayerNonUniqueMoonName()
+    {
+        thrown.expect(MoonFail.class);
+        thrown.expectMessage("Invalid moon name");
+        Optional<Moon> NewMoon = DaoObject.createMoon(DAONonUniqueName);
     }
 }

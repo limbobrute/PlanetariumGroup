@@ -81,6 +81,16 @@ public class PlanetCreationDaoTest
     {
         //Looking for an unhandled PlanetFail Exception with message "Invalid file type"
         thrown.expect(PlanetFail.class);
+        thrown.expectMessage("Invalid file type");
         Optional<Planet> NewPlanet = PlanetDao.createPlanet(DAOBadImage);
+    }
+
+    @Test
+    public void RepoLayerNonUniquePlanetName()
+    {
+        //Looking for an unhandled PlanetFailException with message "Invalid planet name"
+        thrown.expect(PlanetFail.class);
+        thrown.expectMessage("Invalid planet name");
+        Optional<Planet> NewPlanet = PlanetDao.createPlanet(DAONonUniqueName);
     }
 }
