@@ -42,6 +42,6 @@ public class PlanetServiceDeletionTest {
         PlanetFail thrown = Assert.assertThrows(PlanetFail.class, () -> {
             planetService.deletePlanet(negativePlanet);
         });
-        Assert.assertEquals("Invalid planet name", thrown.getMessage());
+        Assert.assertEquals("Exception should be Invalid planet name", "Invalid planet name", thrown.getMessage());
     }
 }

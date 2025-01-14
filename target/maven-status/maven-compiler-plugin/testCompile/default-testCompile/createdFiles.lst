@@ -1,0 +1,5 @@
+com\revature\PlanetariumTestSuite.class
+com\revature\repository\planet\PlanetRepositoryDeletionTest.class
+com\revature\service\moon\MoonServiceDeletionTest.class
+com\revature\repository\moon\MoonRepositoryDeletionTest.class
+com\revature\service\planet\PlanetServiceDeletionTest.class
