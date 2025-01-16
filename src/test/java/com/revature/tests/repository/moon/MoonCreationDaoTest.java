@@ -5,10 +5,7 @@ import com.revature.planetarium.exceptions.MoonFail;
 import com.revature.utils.Setup;
 import com.revature.utils.FileEncoder;
 import com.revature.planetarium.repository.moon.MoonDaoImp;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.Assert;
+import org.junit.*;
 import org.junit.rules.ExpectedException;
 import java.util.Optional;
 
@@ -83,6 +80,7 @@ public class MoonCreationDaoTest
     @Test
     public void RepoLayerInvalidMoonImage()
     {
+        DAOBadImage.setImageData(webpFile);
         thrown.expect(MoonFail.class);
         thrown.expectMessage("Invalid file type");
         Optional<Moon> NewMoon = DaoObject.createMoon(DAOBadImage);
@@ -91,14 +89,16 @@ public class MoonCreationDaoTest
     @Test
     public void RepoLayerNonUniqueMoonName()
     {
+        Optional<Moon> NewMoon = DaoObject.createMoon(DAONonUniqueName);
         thrown.expect(MoonFail.class);
         thrown.expectMessage("Invalid moon name");
-        Optional<Moon> NewMoon = DaoObject.createMoon(DAONonUniqueName);
+        Optional<Moon> NewMoon2 = DaoObject.createMoon(DAONonUniqueName);
     }
 
     @Test
     public void RepoLayerImageUpload()
     {
+        DAOPngTest.setImageData(pngFile);
         Optional<Moon> NewMoon = DaoObject.createMoon(DAOPngTest);
         Assert.assertTrue(NewMoon.isPresent());
     }

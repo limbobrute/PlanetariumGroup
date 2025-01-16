@@ -33,7 +33,12 @@ public class MoonDaoImp implements MoonDao {
             }
         } catch (SQLException e) {
             System.out.println(e);
-            throw new MoonFail(e.getMessage());
+            if(e.getMessage().contains("name_character_check"))
+            {throw new MoonFail("Invalid moon name");}
+            else if(e.getMessage().contains("FOREIGN KEY constraint failed"))
+            {throw new MoonFail("Invalid planet ID");}
+            else
+            {throw new MoonFail(e.getMessage());}
         }
         return Optional.empty();
     }
