@@ -89,10 +89,9 @@ public class MoonCreationDaoTest
     @Test
     public void RepoLayerNonUniqueMoonName()
     {
-        Optional<Moon> NewMoon = DaoObject.createMoon(DAONonUniqueName);
         thrown.expect(MoonFail.class);
         thrown.expectMessage("Invalid moon name");
-        Optional<Moon> NewMoon2 = DaoObject.createMoon(DAONonUniqueName);
+        Optional<Moon> NewMoon = DaoObject.createMoon(DAONonUniqueName);
     }
 
     @Test

@@ -6,6 +6,8 @@ import com.revature.planetarium.repository.planet.PlanetDao;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PlanetServiceImp<T> implements PlanetService<T> {
 
@@ -17,12 +19,18 @@ public class PlanetServiceImp<T> implements PlanetService<T> {
 
     @Override
     public Planet createPlanet(Planet planet) {
+        Pattern pattern = Pattern.compile("[^a-zA-Z0-9\\s\\-_]");
+        Matcher matcher = pattern.matcher(planet.getPlanetName());
+        if(matcher.find()) {
+            throw new PlanetFail("Invalid planet name");
+        }
+
         if (planet.getPlanetName().length() < 1 || planet.getPlanetName().length() > 30) {
-            throw new PlanetFail("character length fail");
+            throw new PlanetFail("Invalid planet name");
         }
         Optional<Planet> existingPlanet = planetDao.readPlanet(planet.getPlanetName());
         if (existingPlanet.isPresent()) {
-            throw new PlanetFail("unique name fail");
+            throw new PlanetFail("Invalid planet name");
         }
         Optional<Planet> createdPlanet = planetDao.createPlanet(planet);
         if (createdPlanet.isPresent()) {

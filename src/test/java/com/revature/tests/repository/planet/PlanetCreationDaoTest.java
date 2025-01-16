@@ -51,6 +51,8 @@ public class PlanetCreationDaoTest
         DAOPngTest.setOwnerId(1);
 
         DAOTestPlanet.setImageData(jpgFile);
+        DAOBadImage.setPlanetName("DAOBadImage");
+        DAOBadImage.setOwnerId(1);
         DAOBadImage.setImageData(webpFile);
         DAOPngTest.setImageData(pngFile);
         Setup.resetTestDatabase();

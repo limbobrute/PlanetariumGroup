@@ -33,12 +33,14 @@ public class MoonDaoImp implements MoonDao {
             }
         } catch (SQLException e) {
             System.out.println(e);
-            if(e.getMessage().contains("name_character_check"))
-            {throw new MoonFail("Invalid moon name");}
-            else if(e.getMessage().contains("FOREIGN KEY constraint failed"))
-            {throw new MoonFail("Invalid planet ID");}
-            else
-            {throw new MoonFail(e.getMessage());}
+            String errorMessage = e.getMessage();
+            if(errorMessage.contains("name_length_check") || errorMessage.contains("name_character_check") || errorMessage.contains("SQLITE_CONSTRAINT_UNIQUE")){
+                throw new MoonFail("Invalid moon name");
+            }
+
+            else if(errorMessage.contains("SQLITE_CONSTRAINT_FOREIGNKEY")){
+                throw new MoonFail("Invalid planet ID");
+            }
         }
         return Optional.empty();
     }
@@ -178,11 +180,10 @@ public class MoonDaoImp implements MoonDao {
              PreparedStatement stmt = conn.prepareStatement("DELETE FROM moons WHERE name = ?")) {
             stmt.setString(1, name);
             int rowsDeleted = stmt.executeUpdate();
-            if (rowsDeleted > 0) {
-                return true;
-            } else {
+            if(rowsDeleted == 0){
                 throw new MoonFail("Invalid moon name");
             }
+            return rowsDeleted > 0;
         } catch (SQLException e) {
             System.out.println(e);
             throw new MoonFail(e.getMessage());

@@ -33,7 +33,10 @@ public class PlanetDaoImp implements PlanetDao {
             }
         } catch (SQLException e) {
             System.out.println(e);
-            throw new PlanetFail(e.getMessage());
+            String errorMessage = e.getMessage();
+            if(errorMessage.contains("name_length_check") || errorMessage.contains("name_character_check") || errorMessage.contains("SQLITE_CONSTRAINT_UNIQUE")){
+                throw new PlanetFail("Invalid planet name");
+            }
         }
         return Optional.empty();
     }
@@ -176,11 +179,10 @@ public class PlanetDaoImp implements PlanetDao {
              PreparedStatement stmt = conn.prepareStatement("DELETE FROM planets WHERE name = ?")) {
             stmt.setString(1, name);
             int rowsDeleted = stmt.executeUpdate();
-            if (rowsDeleted > 0) {
-                return true;
-            } else {
+            if(rowsDeleted == 0){
                 throw new PlanetFail("Invalid planet name");
             }
+            return rowsDeleted > 0;
         } catch (SQLException e) {
             System.out.println(e);
             throw new PlanetFail(e.getMessage());
