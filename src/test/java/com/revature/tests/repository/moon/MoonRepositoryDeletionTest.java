@@ -25,8 +25,6 @@ public class MoonRepositoryDeletionTest {
 
     @Test
     public void daoDeleteMoonNegativeTest() {
-        boolean resultDeleteMoon = moonDao.deleteMoon(negativeMoon);
-        Assert.assertFalse(resultDeleteMoon);
         MoonFail thrown = Assert.assertThrows(MoonFail.class, () -> {
             moonDao.deleteMoon(negativeMoon);
         });

@@ -61,17 +61,18 @@ public class MoonController {
     public void deleteMoon(Context ctx) {
         try {
             String identifier = ctx.pathParam("identifier");
-            String responseMessage;
+            boolean deleted;
             if(identifier.matches("^[0-9]+$")) {
-                responseMessage = moonService.deleteMoon(Integer.parseInt(identifier));
+                deleted = moonService.deleteMoon(Integer.parseInt(identifier));
             } else {
-                responseMessage = moonService.deleteMoon(identifier);
+                deleted = moonService.deleteMoon(identifier);
             }
-            ctx.json(responseMessage);
-            ctx.status(200);
+            if (deleted) {
+                ctx.status(204);
+            }
         } catch (MoonFail e) {
-            ctx.result(e.getMessage());
-            ctx.status(400);
+            ctx.result("Invalid moon name");
+            ctx.status(404);
         }
     }
 

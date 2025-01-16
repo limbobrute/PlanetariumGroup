@@ -31,8 +31,6 @@ public class PlanetRepositoryDeletionTest {
 
     @Test
     public void daoDeletePlanetNegativeTest() {
-        boolean resultDeletePlanet = planetDao.deletePlanet(negativePlanet);
-        Assert.assertFalse(resultDeletePlanet);
         PlanetFail thrown = Assert.assertThrows(PlanetFail.class, () -> {
             planetDao.deletePlanet(negativePlanet);
         });

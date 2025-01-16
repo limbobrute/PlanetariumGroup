@@ -173,7 +173,11 @@ public class MoonDaoImp implements MoonDao {
              PreparedStatement stmt = conn.prepareStatement("DELETE FROM moons WHERE name = ?")) {
             stmt.setString(1, name);
             int rowsDeleted = stmt.executeUpdate();
-            return rowsDeleted > 0;
+            if (rowsDeleted > 0) {
+                return true;
+            } else {
+                throw new MoonFail("Invalid moon name");
+            }
         } catch (SQLException e) {
             System.out.println(e);
             throw new MoonFail(e.getMessage());

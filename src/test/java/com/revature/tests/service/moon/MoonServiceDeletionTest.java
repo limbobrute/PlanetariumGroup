@@ -29,8 +29,8 @@ public class MoonServiceDeletionTest {
     @Test
     public void serviceDeleteMoonPositiveTest() {
         Mockito.when(moonDao.deleteMoon(positiveMoon)).thenReturn(true);
-        Object positiveResult = moonService.deleteMoon(positiveMoon);
-        Assert.assertTrue(positiveResult instanceof Boolean);
+        boolean positiveResult = moonService.deleteMoon(positiveMoon);
+        Assert.assertTrue(positiveResult == true);
     }
 
     @Test

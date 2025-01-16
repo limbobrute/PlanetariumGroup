@@ -159,7 +159,11 @@ public class PlanetDaoImp implements PlanetDao {
              PreparedStatement stmt = conn.prepareStatement("DELETE FROM planets WHERE id = ?")) {
             stmt.setInt(1, id);
             int rowsDeleted = stmt.executeUpdate();
-            return rowsDeleted > 0;
+            if (rowsDeleted > 0) {
+                return true;
+            } else {
+                throw new PlanetFail("Invalid planet name");
+            }
         } catch (SQLException e) {
             System.out.println(e);
             throw new PlanetFail(e.getMessage());
@@ -172,7 +176,11 @@ public class PlanetDaoImp implements PlanetDao {
              PreparedStatement stmt = conn.prepareStatement("DELETE FROM planets WHERE name = ?")) {
             stmt.setString(1, name);
             int rowsDeleted = stmt.executeUpdate();
-            return rowsDeleted > 0;
+            if (rowsDeleted > 0) {
+                return true;
+            } else {
+                throw new PlanetFail("Invalid planet name");
+            }
         } catch (SQLException e) {
             System.out.println(e);
             throw new PlanetFail(e.getMessage());

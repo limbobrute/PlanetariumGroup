@@ -75,11 +75,11 @@ public class PlanetController {
     public void deletePlanet(Context ctx) {
         try {
             String identifier = ctx.pathParam("identifier");
-            String responseMessage;
+            boolean deleted;
             if(identifier.matches("^[0-9]+$")) {
-                responseMessage = planetService.deletePlanet(Integer.parseInt(identifier));
+                deleted = planetService.deletePlanet(Integer.parseInt(identifier));
             } else {
-                responseMessage = planetService.deletePlanet(identifier);
+                deleted = planetService.deletePlanet(identifier);
             }
             ctx.json(responseMessage);
             ctx.status(200);

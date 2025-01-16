@@ -81,7 +81,7 @@ public class MoonServiceImp<T> implements MoonService<T> {
     }
 
     @Override
-    public String deleteMoon(T idOrName) {
+    public boolean deleteMoon(T idOrName) {
         boolean deleted;
         if (idOrName instanceof Integer) {
             deleted = moonDao.deleteMoon((int) idOrName);
@@ -91,7 +91,7 @@ public class MoonServiceImp<T> implements MoonService<T> {
             throw new MoonFail("Identifier must be an Integer or String");
         }
         if (deleted) {
-            return "Moon deleted successfully";
+            return true;
         } else {
             throw new MoonFail("Moon delete failed, please try again");
         }
