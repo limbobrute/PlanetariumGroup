@@ -1,6 +1,7 @@
 package com.revature.planetarium.service.planet;
 
 import com.revature.planetarium.entities.Planet;
+import com.revature.planetarium.exceptions.MoonFail;
 import com.revature.planetarium.exceptions.PlanetFail;
 import com.revature.planetarium.repository.planet.PlanetDao;
 
@@ -21,6 +22,11 @@ public class PlanetServiceImp<T> implements PlanetService<T> {
     public Planet createPlanet(Planet planet) {
         Pattern pattern = Pattern.compile("[^a-zA-Z0-9\\s\\-_]");
         Matcher matcher = pattern.matcher(planet.getPlanetName());
+        byte[] arr = planet.imageDataAsByteArray();
+
+        if(arr != null && arr[0] != (byte) 0x89 && arr[0] != (byte) 0xFF)
+        { throw new PlanetFail("Invalid file type");}
+
         if(matcher.find()) {
             throw new PlanetFail("Invalid planet name");
         }

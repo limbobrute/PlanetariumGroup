@@ -25,6 +25,11 @@ public class MoonServiceImp<T> implements MoonService<T> {
     public Moon createMoon(Moon moon) {
         Pattern pattern = Pattern.compile("[^a-zA-Z0-9\\s\\-_]");
         Matcher matcher = pattern.matcher(moon.getMoonName());
+        byte[] arr = moon.imageDataAsByteArray();
+
+        if(arr != null && arr[0] != (byte) 0x89 && arr[0] != (byte) 0xFF)
+        { throw new MoonFail("Invalid file type");}
+
         if(matcher.find()) {
             throw new MoonFail("Invalid moon name");
         }
