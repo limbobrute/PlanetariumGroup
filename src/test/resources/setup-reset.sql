@@ -30,7 +30,7 @@ create table users(
 		password SIMILAR TO '%[A-Z]%' and
 		password SIMILAR TO '%[0-9]%' and
 		password SIMILAR TO '[a-zA-Z]%' AND
-		username not SIMILAR TO '%[^a-zA-Z0-9_-]%'
+		password not SIMILAR TO '%[^a-zA-Z0-9_-]%'
 	)
 );
 
