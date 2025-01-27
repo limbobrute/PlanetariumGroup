@@ -57,10 +57,13 @@ public class UserServiceImp implements UserService {
             throw new UserFail("Invalid username");
         }
         Optional<User> createdUser = userDao.createUser(newUser);
+
         if (createdUser.isPresent()) {
             return "User created successfully";
+        } else {
+            throw new UserFail("Failed to create user, please try again");
+
         }
-        return "No user created";
 
     }
 

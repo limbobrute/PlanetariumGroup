@@ -20,6 +20,11 @@ public class PlanetDaoImp implements PlanetDao {
     public Optional<Planet> createPlanet(Planet planet) {
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement stmt = conn.prepareStatement("INSERT INTO planets (name, ownerId, image) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS)){
+
+            byte[] arr = planet.imageDataAsByteArray();
+            if(arr != null && arr[0] != (byte) 0x89 && arr[0] != (byte) 0xFF)
+            {throw new PlanetFail("Invalid file type");}
+
             stmt.setString(1, planet.getPlanetName());
             stmt.setInt(2, planet.getOwnerId());
             stmt.setBytes(3, planet.imageDataAsByteArray());
