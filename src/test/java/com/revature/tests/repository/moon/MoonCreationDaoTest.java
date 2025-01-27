@@ -7,8 +7,6 @@ import com.revature.utils.FileEncoder;
 import com.revature.planetarium.repository.moon.MoonDaoImp;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
-
-import java.io.File;
 import java.util.Optional;
 
 public class MoonCreationDaoTest
@@ -33,13 +31,9 @@ public class MoonCreationDaoTest
     public void Setup()
     {
         DaoObject = new MoonDaoImp();
-        String imagePath =  "src" + File.separator +
-                            "test" + File.separator +
-                            "resources" + File.separator +
-                            "Celestial-images" + File.separator;
-        String jpg = imagePath + "moons-1.jpg";
-        String png = imagePath + "moons-1.png";
-        String webp = imagePath + "Testwebp.webp";
+        String jpg = "src/test/resources/Celestial-Images/moons-1.jpg";
+        String png = "src/test/resources/Celestial-Images/moons-1.png";
+        String webp = "src/test/resources/Celestial-Images/Testwebp.webp";
         jpgFile = FileEncoder.encoder(jpg);
         webpFile = FileEncoder.encoder(webp);
         pngFile = FileEncoder.encoder(png);
