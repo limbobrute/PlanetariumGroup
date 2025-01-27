@@ -21,33 +21,26 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        //repository/moon
-        MoonCreationDaoTest.class,
-        MoonRepositoryDeletionTest.class,
-        MoonRetrievalRepositoryTest.class,
-
-        //repository/planet
-        PlanetCreationDaoTest.class,
-        PlanetRepositoryDeletionTest.class,
-        PlanetRetrievalRepositoryTest.class,
-
-        //repository/user
+        // Gerald
         UserDaoCreationTest.class,
         UserDaoRetrievalTest.class,
-
-        //service/moon
-        MoonCreationServiceTest.class,
-        MoonRetrievalServiceTest.class,
-        MoonServiceDeletionTest.class,
-
-        //service/planet
-        PlanetCreationServiceTest.class,
-        PlanetRetrievalServiceTest.class,
-        PlanetServiceDeletionTest.class,
-
-        //service/user
         UserServiceAuthentication.class,
-        UserServiceCreationTest.class
+        UserServiceCreationTest.class,
+        // John Paul
+        PlanetRetrievalServiceTest.class,
+        MoonRetrievalRepositoryTest.class,
+        PlanetRetrievalRepositoryTest.class,
+        MoonRetrievalServiceTest.class,
+        // William
+        PlanetCreationDaoTest.class,
+        MoonCreationDaoTest.class,
+        PlanetCreationServiceTest.class,
+        MoonCreationServiceTest.class,
+        // Mick
+        PlanetRepositoryDeletionTest.class,
+        MoonRepositoryDeletionTest.class,
+        PlanetServiceDeletionTest.class,
+        MoonServiceDeletionTest.class,
 
 })
 public class PlanetariumTestSuite {
