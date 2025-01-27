@@ -12,6 +12,7 @@ import java.util.Optional;
 
 import com.revature.planetarium.entities.Moon;
 import com.revature.planetarium.exceptions.MoonFail;
+import com.revature.planetarium.exceptions.PlanetFail;
 import com.revature.planetarium.utility.DatabaseConnector;
 
 public class MoonDaoImp implements MoonDao {
@@ -20,6 +21,11 @@ public class MoonDaoImp implements MoonDao {
     public Optional<Moon> createMoon(Moon moon) {
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement stmt = conn.prepareStatement("INSERT INTO moons (name, myPlanetId, image) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS)){
+
+            byte[] arr = moon.imageDataAsByteArray();
+            if(arr != null && arr[0] != (byte) 0x89 && arr[0] != (byte) 0xFF)
+            {throw new MoonFail("Invalid file type");}
+
             stmt.setString(1, moon.getMoonName());
             stmt.setInt(2, moon.getOwnerId());
             stmt.setBytes(3, moon.imageDataAsByteArray());
@@ -33,7 +39,14 @@ public class MoonDaoImp implements MoonDao {
             }
         } catch (SQLException e) {
             System.out.println(e);
-            throw new MoonFail(e.getMessage());
+            String errorMessage = e.getMessage();
+            if(errorMessage.contains("name_length_check") || errorMessage.contains("name_character_check") || errorMessage.contains("SQLITE_CONSTRAINT_UNIQUE")){
+                throw new MoonFail("Invalid moon name");
+            }
+
+            else if(errorMessage.contains("SQLITE_CONSTRAINT_FOREIGNKEY")){
+                throw new MoonFail("Invalid planet ID");
+            }
         }
         return Optional.empty();
     }
@@ -173,6 +186,9 @@ public class MoonDaoImp implements MoonDao {
              PreparedStatement stmt = conn.prepareStatement("DELETE FROM moons WHERE name = ?")) {
             stmt.setString(1, name);
             int rowsDeleted = stmt.executeUpdate();
+            if(rowsDeleted == 0){
+                throw new MoonFail("Invalid moon name");
+            }
             return rowsDeleted > 0;
         } catch (SQLException e) {
             System.out.println(e);

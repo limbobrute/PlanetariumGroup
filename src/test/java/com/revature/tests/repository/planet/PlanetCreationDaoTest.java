@@ -5,10 +5,7 @@ import com.revature.planetarium.exceptions.PlanetFail;
 import com.revature.planetarium.repository.planet.PlanetDaoImp;
 import com.revature.utils.Setup;
 import com.revature.utils.FileEncoder;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.Assert;
+import org.junit.*;
 import org.junit.rules.ExpectedException;
 import java.util.Optional;
 
@@ -51,6 +48,8 @@ public class PlanetCreationDaoTest
         DAOPngTest.setOwnerId(1);
 
         DAOTestPlanet.setImageData(jpgFile);
+        DAOBadImage.setPlanetName("DAOBadImage");
+        DAOBadImage.setOwnerId(1);
         DAOBadImage.setImageData(webpFile);
         DAOPngTest.setImageData(pngFile);
         Setup.resetTestDatabase();

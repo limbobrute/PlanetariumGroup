@@ -20,6 +20,11 @@ public class PlanetDaoImp implements PlanetDao {
     public Optional<Planet> createPlanet(Planet planet) {
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement stmt = conn.prepareStatement("INSERT INTO planets (name, ownerId, image) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS)){
+
+            byte[] arr = planet.imageDataAsByteArray();
+            if(arr != null && arr[0] != (byte) 0x89 && arr[0] != (byte) 0xFF)
+            {throw new PlanetFail("Invalid file type");}
+
             stmt.setString(1, planet.getPlanetName());
             stmt.setInt(2, planet.getOwnerId());
             stmt.setBytes(3, planet.imageDataAsByteArray());
@@ -33,7 +38,10 @@ public class PlanetDaoImp implements PlanetDao {
             }
         } catch (SQLException e) {
             System.out.println(e);
-            throw new PlanetFail(e.getMessage());
+            String errorMessage = e.getMessage();
+            if(errorMessage.contains("name_length_check") || errorMessage.contains("name_character_check") || errorMessage.contains("SQLITE_CONSTRAINT_UNIQUE")){
+                throw new PlanetFail("Invalid planet name");
+            }
         }
         return Optional.empty();
     }
@@ -159,7 +167,11 @@ public class PlanetDaoImp implements PlanetDao {
              PreparedStatement stmt = conn.prepareStatement("DELETE FROM planets WHERE id = ?")) {
             stmt.setInt(1, id);
             int rowsDeleted = stmt.executeUpdate();
-            return rowsDeleted > 0;
+            if (rowsDeleted > 0) {
+                return true;
+            } else {
+                throw new PlanetFail("Invalid planet name");
+            }
         } catch (SQLException e) {
             System.out.println(e);
             throw new PlanetFail(e.getMessage());
@@ -172,6 +184,9 @@ public class PlanetDaoImp implements PlanetDao {
              PreparedStatement stmt = conn.prepareStatement("DELETE FROM planets WHERE name = ?")) {
             stmt.setString(1, name);
             int rowsDeleted = stmt.executeUpdate();
+            if(rowsDeleted == 0){
+                throw new PlanetFail("Invalid planet name");
+            }
             return rowsDeleted > 0;
         } catch (SQLException e) {
             System.out.println(e);

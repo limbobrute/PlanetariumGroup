@@ -33,6 +33,7 @@ public class MoonCreationServiceTest
     Moon NonUniqueName;
     Moon BadImage;
     Moon PngTest;
+    Moon BlankMoon;
 
     //Moon MockMoon;
 
@@ -59,10 +60,12 @@ public class MoonCreationServiceTest
         NonUniqueName = new Moon(0, "Titan", 1);
         BadImage = new Moon(0, "BadImage", 1);
         PngTest = new Moon(0, "PngTest", 1);
+        BlankMoon = new Moon(0, "Webhookshouldwork", 1);
 
         PngTest.setImageData(pngFile);
         ServiceTestMoon.setImageData(jpgFile);
         BadImage.setImageData(webpFile);
+        BlankMoon.setImageData(pngFile);
 
         Setup.resetTestDatabase();
     }

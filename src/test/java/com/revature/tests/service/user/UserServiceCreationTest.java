@@ -62,6 +62,7 @@ public class UserServiceCreationTest {
     @Test
     public void createUserPostive(){
         Mockito.when(userDao.createUser(new User(0, positiveUsername, positivePassword))).thenReturn(Optional.of(mockUser));
+        Mockito.when(userDao.findUserByUsername(positiveUsername)).thenReturn(Optional.empty());
         String message = userService.createUser(new User(0, positiveUsername, positivePassword));
         Assert.assertEquals(validUserMessage, message);
     }
@@ -70,6 +71,7 @@ public class UserServiceCreationTest {
     public void duplicateUsernameNegative(){
         try {
             Mockito.when(userDao.createUser(new User(0, duplicateUsername, positivePassword))).thenReturn(Optional.of(mockUser));
+            Mockito.when(userDao.findUserByUsername(duplicateUsername)).thenReturn(Optional.of(mockUser));
             String message = userService.createUser(new User(0, duplicateUsername, positivePassword));
             Assert.fail("Expected UserFail, but no exception was thrown");
         }
@@ -83,6 +85,7 @@ public class UserServiceCreationTest {
     public void shortUsernameNegative(){
         try{
             Mockito.when(userDao.createUser(new User(0, shortUsername, positivePassword))).thenReturn(Optional.of(mockUser));
+            Mockito.when(userDao.findUserByUsername(shortUsername)).thenReturn(Optional.empty());
             String message = userService.createUser(new User(0, shortUsername, positivePassword));
             Assert.fail("Expected UserFail, but no exception was thrown");
 
@@ -96,6 +99,7 @@ public class UserServiceCreationTest {
     public void longUsernameNegative(){
         try {
             Mockito.when(userDao.createUser(new User(0, longUsername, positivePassword))).thenReturn(Optional.of(mockUser));
+            Mockito.when(userDao.findUserByUsername(longUsername)).thenReturn(Optional.empty());
             String message = userService.createUser(new User(0, longUsername, positivePassword));
             Assert.fail("Expected UserFail, but no exception was thrown");
         }
@@ -108,6 +112,7 @@ public class UserServiceCreationTest {
     public void usernameStartsWithNumberNegative(){
         try {
             Mockito.when(userDao.createUser(new User(0, startsWithNumber, positivePassword))).thenReturn(Optional.of(mockUser));
+            Mockito.when(userDao.findUserByUsername(startsWithNumber)).thenReturn(Optional.empty());
             String message = userService.createUser(new User(0, startsWithNumber, positivePassword));
             Assert.fail("Expected UserFail, but no exception was thrown");
         }
@@ -120,6 +125,7 @@ public class UserServiceCreationTest {
     public void usernameInvalidCharactersNegative(){
         try {
             Mockito.when(userDao.createUser(new User(0, invalidCharacters, positivePassword))).thenReturn(Optional.of(mockUser));
+            Mockito.when(userDao.findUserByUsername(invalidCharacters)).thenReturn(Optional.empty());
             String message = userService.createUser(new User(0, invalidCharacters, positivePassword));
             Assert.fail("Expected UserFail, but no exception was thrown");
         }
@@ -132,6 +138,7 @@ public class UserServiceCreationTest {
     public void shortPasswordNegative(){
         try {
             Mockito.when(userDao.createUser(new User(0, positiveUsername, shortPassword))).thenReturn(Optional.of(mockUser));
+            Mockito.when(userDao.findUserByUsername(positiveUsername)).thenReturn(Optional.empty());
             String message = userService.createUser(new User(0, positiveUsername, shortPassword));
             Assert.fail("Expected UserFail, but no exception was thrown");
         }
@@ -144,6 +151,7 @@ public class UserServiceCreationTest {
     public void longPasswordNegative(){
         try {
             Mockito.when(userDao.createUser(new User(0, positiveUsername, longPassword))).thenReturn(Optional.of(mockUser));
+            Mockito.when(userDao.findUserByUsername(positiveUsername)).thenReturn(Optional.empty());
             String message = userService.createUser(new User(0, positiveUsername, longPassword));
             Assert.fail("Expected UserFail, but no exception was thrown");
         }
@@ -156,6 +164,7 @@ public class UserServiceCreationTest {
     public void passwordStartsWithNumberNegative(){
         try {
             Mockito.when(userDao.createUser(new User(0, positiveUsername, startsWithNumberPass))).thenReturn(Optional.of(mockUser));
+            Mockito.when(userDao.findUserByUsername(positiveUsername)).thenReturn(Optional.empty());
             String message = userService.createUser(new User(0, positiveUsername, startsWithNumberPass));
             Assert.fail("Expected UserFail, but no exception was thrown");
         }
@@ -168,6 +177,7 @@ public class UserServiceCreationTest {
     public void passwordInvalidCharactersNegative(){
         try {
             Mockito.when(userDao.createUser(new User(0, positiveUsername, invalidCharactersPass))).thenReturn(Optional.of(mockUser));
+            Mockito.when(userDao.findUserByUsername(positiveUsername)).thenReturn(Optional.empty());
             String message = userService.createUser(new User(0, positiveUsername, invalidCharactersPass));
             Assert.fail("Expected UserFail, but no exception was thrown");
         }
@@ -180,6 +190,7 @@ public class UserServiceCreationTest {
     public void noCapsNegative(){
         try {
             Mockito.when(userDao.createUser(new User(0, positiveUsername, noCaps))).thenReturn(Optional.of(mockUser));
+            Mockito.when(userDao.findUserByUsername(positiveUsername)).thenReturn(Optional.empty());
             String message = userService.createUser(new User(0, positiveUsername, noCaps));
             Assert.fail("Expected UserFail, but no exception was thrown");
         }
@@ -192,6 +203,7 @@ public class UserServiceCreationTest {
     public void noLowerNegative(){
         try {
             Mockito.when(userDao.createUser(new User(0, positiveUsername, noLower))).thenReturn(Optional.of(mockUser));
+            Mockito.when(userDao.findUserByUsername(positiveUsername)).thenReturn(Optional.empty());
             String message = userService.createUser(new User(0, positiveUsername, noLower));
             Assert.fail("Expected UserFail, but no exception was thrown");
         }
@@ -204,6 +216,7 @@ public class UserServiceCreationTest {
     public void noNumberNegative(){
         try {
             Mockito.when(userDao.createUser(new User(0, positiveUsername, noNumber))).thenReturn(Optional.of(mockUser));
+            Mockito.when(userDao.findUserByUsername(positiveUsername)).thenReturn(Optional.empty());
             String message = userService.createUser(new User(0, positiveUsername, noNumber));
             Assert.fail("Expected UserFail, but no exception was thrown");
         }

@@ -31,6 +31,7 @@ public class MoonServiceDeletionTest {
         Mockito.when(moonDao.deleteMoon(positiveMoon)).thenReturn(true);
         Object positiveResult = moonService.deleteMoon(positiveMoon);
         Assert.assertTrue("Expected a boolean, but a String was returned", positiveResult instanceof Boolean);
+
     }
 
     @Test

@@ -29,12 +29,8 @@ public class PlanetServiceDeletionTest {
     @Test
     public void serviceDeletePlanetPositiveTest() {
         Mockito.when(planetDao.deletePlanet(positivePlanet)).thenReturn(true);
-        Object positiveResult = planetService.deletePlanet(positivePlanet);
-        if (positiveResult instanceof String) {
-            Assert.assertEquals("true", positiveResult);
-        } else {
-            Assert.fail("positiveResult is not a String");
-        }
+        boolean positiveResult = planetService.deletePlanet(positivePlanet);
+        Assert.assertTrue(positiveResult);
     }
 
     @Test

@@ -29,7 +29,12 @@ public class UserDaoImp implements UserDao {
 
         } catch (SQLException e) {
             System.out.println(e);
-            throw new UserFail(e.getMessage());
+            String failMsg = e.getMessage();
+            if(e.getMessage().contains("username"))
+                failMsg = "Invalid username";
+            else if(e.getMessage().contains("password"))
+                failMsg = "Invalid password";
+            throw new UserFail(failMsg);
         }
         return Optional.empty();
     }

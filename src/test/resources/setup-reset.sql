@@ -30,7 +30,7 @@ create table users(
 		password GLOB '*[A-Z]*' and 
 		password GLOB '*[0-9]*' and
 		password GLOB '[a-zA-Z]*' AND 
-		username not glob '*[^a-zA-Z0-9_-]*'
+		password not glob '*[^a-zA-Z0-9_-]*'
 	)
 );
 
@@ -54,7 +54,7 @@ insert into planets (name, ownerId, image) values ('Mars', 1, ?);
 
 create table moons(
 	id integer primary key,
-	name text not null,
+	name text unique not null,
 	myPlanetId integer not null,
 	image blob,
 	foreign key(myPlanetId) references planets(id) on delete cascade,

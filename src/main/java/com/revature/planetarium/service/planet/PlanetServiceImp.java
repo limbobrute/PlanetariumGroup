@@ -1,11 +1,14 @@
 package com.revature.planetarium.service.planet;
 
 import com.revature.planetarium.entities.Planet;
+import com.revature.planetarium.exceptions.MoonFail;
 import com.revature.planetarium.exceptions.PlanetFail;
 import com.revature.planetarium.repository.planet.PlanetDao;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PlanetServiceImp<T> implements PlanetService<T> {
 
@@ -17,12 +20,23 @@ public class PlanetServiceImp<T> implements PlanetService<T> {
 
     @Override
     public Planet createPlanet(Planet planet) {
+        Pattern pattern = Pattern.compile("[^a-zA-Z0-9\\s\\-_]");
+        Matcher matcher = pattern.matcher(planet.getPlanetName());
+        byte[] arr = planet.imageDataAsByteArray();
+
+        if(arr != null && arr[0] != (byte) 0x89 && arr[0] != (byte) 0xFF)
+        { throw new PlanetFail("Invalid file type");}
+
+        if(matcher.find()) {
+            throw new PlanetFail("Invalid planet name");
+        }
+
         if (planet.getPlanetName().length() < 1 || planet.getPlanetName().length() > 30) {
-            throw new PlanetFail("character length fail");
+            throw new PlanetFail("Invalid planet name");
         }
         Optional<Planet> existingPlanet = planetDao.readPlanet(planet.getPlanetName());
         if (existingPlanet.isPresent()) {
-            throw new PlanetFail("unique name fail");
+            throw new PlanetFail("Invalid planet name");
         }
         Optional<Planet> createdPlanet = planetDao.createPlanet(planet);
         if (createdPlanet.isPresent()) {
@@ -82,7 +96,7 @@ public class PlanetServiceImp<T> implements PlanetService<T> {
     }
 
     @Override
-    public String deletePlanet(T idOrName) {
+    public boolean deletePlanet(T idOrName) {
         boolean deleted;
         if (idOrName instanceof Integer) {
             deleted = planetDao.deletePlanet((int) idOrName);
@@ -92,9 +106,9 @@ public class PlanetServiceImp<T> implements PlanetService<T> {
             throw new PlanetFail("identifier must be an Integer or String");
         }
         if (deleted) {
-            return "Planet deleted successfully";
+            return true;
         } else {
-            throw new PlanetFail("Planet delete failed, please try again");
+            throw new PlanetFail("Invalid planet name");
         }
     }
 
