@@ -51,5 +51,5 @@ import org.junit.runners.Suite;
 
 })
 public class PlanetariumTestSuite {
-
+//jenkins build trigger test
 }
