@@ -39,7 +39,7 @@ public class PlanetDaoImp implements PlanetDao {
         } catch (SQLException e) {
             System.out.println(e);
             String errorMessage = e.getMessage();
-            if(errorMessage.contains("name_length_check") || errorMessage.contains("name_character_check") || errorMessage.contains("SQLITE_CONSTRAINT_UNIQUE")){
+            if(errorMessage.contains("name_length_check") || errorMessage.contains("name_character_check") || errorMessage.contains("unique constraint")){
                 throw new PlanetFail("Invalid planet name");
             }
         }
