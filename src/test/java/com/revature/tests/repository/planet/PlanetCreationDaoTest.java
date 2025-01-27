@@ -31,9 +31,9 @@ public class PlanetCreationDaoTest
     public void setup()
     {
         PlanetDao = new PlanetDaoImp();
-        String jpg = "src\\test\\resources\\Celestial-Images\\moons-1.jpg";
-        String webp = "src\\test\\resources\\Celestial-Images\\Testwebp.webp";
-        String png = "src\\test\\resources\\Celestial-Images\\moons-1.png";
+        String jpg = "src/test/resources/Celestial-Images/moons-1.jpg";
+        String webp = "src/test/resources/Celestial-Images/Testwebp.webp";
+        String png = "src/test/resources/Celestial-Images/moons-1.png";
         jpgFile = FileEncoder.encoder(jpg);
         webpFile = FileEncoder.encoder(webp);
         pngFile = FileEncoder.encoder(png);
