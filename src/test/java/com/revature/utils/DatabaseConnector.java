@@ -10,9 +10,9 @@ public class DatabaseConnector
 {
     public static Connection getConnection() throws SQLException
     {
-        SQLiteConfig config = new SQLiteConfig();
-        config.enforceForeignKeys(true);
-        String url = System.getenv("DATABASE_URL");
-        return DriverManager.getConnection(url, config.toProperties());
+        String url = System.getenv("RDS_URL");
+        String username = System.getenv("RDS_USERNAME");
+        String password = System.getenv("RDS_PASSWORD");
+        return DriverManager.getConnection(url, username, password);
     }
 }
