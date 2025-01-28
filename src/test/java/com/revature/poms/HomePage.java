@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.File;
 import java.util.List;
 
 public class HomePage {
@@ -88,22 +89,26 @@ public class HomePage {
     }
 
     public void enterPlanetImage() {
-        String filePath = "C:\\Users\\micke\\OneDrive\\Desktop\\Revature Paid Training\\Project1\\Project1ME\\db-setup\\src\\test\\resources\\Celestial-Images\\planet-3.jpg";
+        File file = new File("src/test/resources/Celestial-Images/planet-3.jpg");
+        String filePath = file.getAbsolutePath();
         planetImageInput.sendKeys(filePath);
     }
 
     public void enterMoonImage() {
-        String filePath = "C:\\Users\\micke\\OneDrive\\Desktop\\Revature Paid Training\\Project1\\Project1ME\\db-setup\\src\\test\\resources\\Celestial-Images\\moon-3.jpg";
+        File file = new File("src/test/resources/Celestial-Images/moons-3.jpg");
+        String filePath = file.getAbsolutePath();
         moonImageInput.sendKeys(filePath);
     }
 
     public void enterInvalidPlanetImage() {
-        String filePath = "C:\\Users\\micke\\OneDrive\\Desktop\\Revature Paid Training\\Project1\\Project1ME\\db-setup\\src\\test\\resources\\Celestial-Images\\video.wmv";
+        File file = new File("src/test/resources/Celestial-Images/Testwebp.webp");
+        String filePath = file.getAbsolutePath();
         planetImageInput.sendKeys(filePath);
     }
 
     public void enterInvalidMoonImage() {
-        String filePath = "C:\\Users\\micke\\OneDrive\\Desktop\\Revature Paid Training\\Project1\\Project1ME\\db-setup\\src\\test\\resources\\Celestial-Images\\video.wmv";
+        File file = new File("src/test/resources/Celestial-Images/Testwebp.webp");
+        String filePath = file.getAbsolutePath();
         moonImageInput.sendKeys(filePath);
     }
 
