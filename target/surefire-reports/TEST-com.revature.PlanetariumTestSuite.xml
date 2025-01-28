@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.revature.PlanetariumTestSuite" time="3.864" tests="73" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="D:\Projects\Project 2\PlanetariumGroup\target\test-classes;D:\Projects\Project 2\PlanetariumGroup\target\classes;C:\Users\Shisou\.m2\repository\org\slf4j\slf4j-simple\2.0.10\slf4j-simple-2.0.10.jar;C:\Users\Shisou\.m2\repository\org\slf4j\slf4j-api\2.0.10\slf4j-api-2.0.10.jar;C:\Users\Shisou\.m2\repository\org\xerial\sqlite-jdbc\3.45.2.0\sqlite-jdbc-3.45.2.0.jar;C:\Users\Shisou\.m2\repository\io\javalin\javalin\6.1.3\javalin-6.1.3.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\jetty-server\11.0.20\jetty-server-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\jetty-http\11.0.20\jetty-http-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\jetty-util\11.0.20\jetty-util-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\jetty-io\11.0.20\jetty-io-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\toolchain\jetty-jakarta-servlet-api\5.0.2\jetty-jakarta-servlet-api-5.0.2.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\websocket\websocket-jetty-server\11.0.20\websocket-jetty-server-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\jetty-servlet\11.0.20\jetty-servlet-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\jetty-security\11.0.20\jetty-security-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\jetty-webapp\11.0.20\jetty-webapp-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\jetty-xml\11.0.20\jetty-xml-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\websocket\websocket-jetty-api\11.0.20\websocket-jetty-api-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\websocket\websocket-jetty-common\11.0.20\websocket-jetty-common-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\websocket\websocket-core-common\11.0.20\websocket-core-common-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\websocket\websocket-servlet\11.0.20\websocket-servlet-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\websocket\websocket-core-server\11.0.20\websocket-core-server-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk8\1.9.22\kotlin-stdlib-jdk8-1.9.22.jar;C:\Users\Shisou\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.9.22\kotlin-stdlib-1.9.22.jar;C:\Users\Shisou\.m2\repository\org\jetbrains\annotations\13.0\annotations-13.0.jar;C:\Users\Shisou\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk7\1.9.22\kotlin-stdlib-jdk7-1.9.22.jar;C:\Users\Shisou\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.13.4.2\jackson-databind-2.13.4.2.jar;C:\Users\Shisou\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.13.4\jackson-annotations-2.13.4.jar;C:\Users\Shisou\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.13.4\jackson-core-2.13.4.jar;C:\Users\Shisou\.m2\repository\io\cucumber\cucumber-junit\6.1.1\cucumber-junit-6.1.1.jar;C:\Users\Shisou\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\Shisou\.m2\repository\io\cucumber\cucumber-core\6.1.1\cucumber-core-6.1.1.jar;C:\Users\Shisou\.m2\repository\io\cucumber\cucumber-gherkin\6.1.1\cucumber-gherkin-6.1.1.jar;C:\Users\Shisou\.m2\repository\io\cucumber\cucumber-gherkin-messages\6.1.1\cucumber-gherkin-messages-6.1.1.jar;C:\Users\Shisou\.m2\repository\io\cucumber\messages\12.1.1\messages-12.1.1.jar;C:\Users\Shisou\.m2\repository\io\cucumber\tag-expressions\3.0.0\tag-expressions-3.0.0.jar;C:\Users\Shisou\.m2\repository\io\cucumber\cucumber-expressions\10.2.0\cucumber-expressions-10.2.0.jar;C:\Users\Shisou\.m2\repository\io\cucumber\datatable\3.3.1\datatable-3.3.1.jar;C:\Users\Shisou\.m2\repository\io\cucumber\cucumber-plugin\6.1.1\cucumber-plugin-6.1.1.jar;C:\Users\Shisou\.m2\repository\io\cucumber\docstring\6.1.1\docstring-6.1.1.jar;C:\Users\Shisou\.m2\repository\io\cucumber\html-formatter\6.0.3\html-formatter-6.0.3.jar;C:\Users\Shisou\.m2\repository\org\mockito\mockito-core\5.12.0\mockito-core-5.12.0.jar;C:\Users\Shisou\.m2\repository\net\bytebuddy\byte-buddy\1.14.15\byte-buddy-1.14.15.jar;C:\Users\Shisou\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.15\byte-buddy-agent-1.14.15.jar;C:\Users\Shisou\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\Shisou\.m2\repository\junit\junit\4.13.1\junit-4.13.1.jar;C:\Users\Shisou\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Shisou\.m2\repository\org\mockito\mockito-all\1.8.4\mockito-all-1.8.4.jar;"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="America/Chicago"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Users\Shisou\.jdks\temurin-11.0.25\bin"/>
+    <property name="sun.java.command" value="C:\Users\Shisou\AppData\Local\Temp\surefire1270325626451344583\surefirebooter-20250127111108424_3.jar C:\Users\Shisou\AppData\Local\Temp\surefire1270325626451344583 2025-01-27T11-11-07_944-jvmRun1 surefire-20250127111108424_1tmp surefire_0-20250127111108424_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="D:\Projects\Project 2\PlanetariumGroup\target\test-classes;D:\Projects\Project 2\PlanetariumGroup\target\classes;C:\Users\Shisou\.m2\repository\org\slf4j\slf4j-simple\2.0.10\slf4j-simple-2.0.10.jar;C:\Users\Shisou\.m2\repository\org\slf4j\slf4j-api\2.0.10\slf4j-api-2.0.10.jar;C:\Users\Shisou\.m2\repository\org\xerial\sqlite-jdbc\3.45.2.0\sqlite-jdbc-3.45.2.0.jar;C:\Users\Shisou\.m2\repository\io\javalin\javalin\6.1.3\javalin-6.1.3.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\jetty-server\11.0.20\jetty-server-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\jetty-http\11.0.20\jetty-http-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\jetty-util\11.0.20\jetty-util-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\jetty-io\11.0.20\jetty-io-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\toolchain\jetty-jakarta-servlet-api\5.0.2\jetty-jakarta-servlet-api-5.0.2.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\websocket\websocket-jetty-server\11.0.20\websocket-jetty-server-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\jetty-servlet\11.0.20\jetty-servlet-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\jetty-security\11.0.20\jetty-security-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\jetty-webapp\11.0.20\jetty-webapp-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\jetty-xml\11.0.20\jetty-xml-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\websocket\websocket-jetty-api\11.0.20\websocket-jetty-api-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\websocket\websocket-jetty-common\11.0.20\websocket-jetty-common-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\websocket\websocket-core-common\11.0.20\websocket-core-common-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\websocket\websocket-servlet\11.0.20\websocket-servlet-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\eclipse\jetty\websocket\websocket-core-server\11.0.20\websocket-core-server-11.0.20.jar;C:\Users\Shisou\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk8\1.9.22\kotlin-stdlib-jdk8-1.9.22.jar;C:\Users\Shisou\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.9.22\kotlin-stdlib-1.9.22.jar;C:\Users\Shisou\.m2\repository\org\jetbrains\annotations\13.0\annotations-13.0.jar;C:\Users\Shisou\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk7\1.9.22\kotlin-stdlib-jdk7-1.9.22.jar;C:\Users\Shisou\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.13.4.2\jackson-databind-2.13.4.2.jar;C:\Users\Shisou\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.13.4\jackson-annotations-2.13.4.jar;C:\Users\Shisou\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.13.4\jackson-core-2.13.4.jar;C:\Users\Shisou\.m2\repository\io\cucumber\cucumber-junit\6.1.1\cucumber-junit-6.1.1.jar;C:\Users\Shisou\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\Shisou\.m2\repository\io\cucumber\cucumber-core\6.1.1\cucumber-core-6.1.1.jar;C:\Users\Shisou\.m2\repository\io\cucumber\cucumber-gherkin\6.1.1\cucumber-gherkin-6.1.1.jar;C:\Users\Shisou\.m2\repository\io\cucumber\cucumber-gherkin-messages\6.1.1\cucumber-gherkin-messages-6.1.1.jar;C:\Users\Shisou\.m2\repository\io\cucumber\messages\12.1.1\messages-12.1.1.jar;C:\Users\Shisou\.m2\repository\io\cucumber\tag-expressions\3.0.0\tag-expressions-3.0.0.jar;C:\Users\Shisou\.m2\repository\io\cucumber\cucumber-expressions\10.2.0\cucumber-expressions-10.2.0.jar;C:\Users\Shisou\.m2\repository\io\cucumber\datatable\3.3.1\datatable-3.3.1.jar;C:\Users\Shisou\.m2\repository\io\cucumber\cucumber-plugin\6.1.1\cucumber-plugin-6.1.1.jar;C:\Users\Shisou\.m2\repository\io\cucumber\docstring\6.1.1\docstring-6.1.1.jar;C:\Users\Shisou\.m2\repository\io\cucumber\html-formatter\6.0.3\html-formatter-6.0.3.jar;C:\Users\Shisou\.m2\repository\org\mockito\mockito-core\5.12.0\mockito-core-5.12.0.jar;C:\Users\Shisou\.m2\repository\net\bytebuddy\byte-buddy\1.14.15\byte-buddy-1.14.15.jar;C:\Users\Shisou\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.15\byte-buddy-agent-1.14.15.jar;C:\Users\Shisou\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\Shisou\.m2\repository\junit\junit\4.13.1\junit-4.13.1.jar;C:\Users\Shisou\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Shisou\.m2\repository\org\mockito\mockito-all\1.8.4\mockito-all-1.8.4.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Shisou"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-10-15"/>
+    <property name="java.home" value="C:\Users\Shisou\.jdks\temurin-11.0.25"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="D:\Projects\Project 2\PlanetariumGroup"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\Shisou\AppData\Local\Temp\surefire1270325626451344583\surefirebooter-20250127111108424_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.25+9"/>
+    <property name="user.name" value="Shisou"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-11.0.25+9"/>
+    <property name="localRepository" value="C:\Users\Shisou\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\Shisou\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2024.3.1"/>
+    <property name="java.version" value="11.0.25"/>
+    <property name="user.dir" value="D:\Projects\Project 2\PlanetariumGroup"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Users\Shisou\.jdks\temurin-11.0.25\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Windows Live\Shared;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Users\Shisou\.jdks\temurin-11.0.25\\bin;;C:\sqlite;C:\Users\Shisou\AppData\Local\Microsoft\WindowsApps;C:\Users\Shisou\AppData\Local\GitHubDesktop\bin;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="11.0.25+9"/>
+    <property name="java.specification.maintenance.version" value="3"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="noLowerNegative" classname="com.revature.tests.repository.user.UserDaoCreationTest" time="0.683">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: password_character_check)
+]]></system-out>
+  </testcase>
+  <testcase name="usernameInvalidCharactersNegative" classname="com.revature.tests.repository.user.UserDaoCreationTest" time="0.01">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: username_character_check)
+]]></system-out>
+  </testcase>
+  <testcase name="noCapsNegative" classname="com.revature.tests.repository.user.UserDaoCreationTest" time="0.02">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: password_character_check)
+]]></system-out>
+  </testcase>
+  <testcase name="noNumberNegative" classname="com.revature.tests.repository.user.UserDaoCreationTest" time="0.019">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: password_character_check)
+]]></system-out>
+  </testcase>
+  <testcase name="duplicateUsernameNegative" classname="com.revature.tests.repository.user.UserDaoCreationTest" time="0.026">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: users.username)
+]]></system-out>
+  </testcase>
+  <testcase name="longUsernameNegative" classname="com.revature.tests.repository.user.UserDaoCreationTest" time="0.018">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: username_length_check)
+]]></system-out>
+  </testcase>
+  <testcase name="createUserPostive" classname="com.revature.tests.repository.user.UserDaoCreationTest" time="0.025">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="usernameStartsWithNumberNegative" classname="com.revature.tests.repository.user.UserDaoCreationTest" time="0.02">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: username_character_check)
+]]></system-out>
+  </testcase>
+  <testcase name="longPasswordNegative" classname="com.revature.tests.repository.user.UserDaoCreationTest" time="0.018">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: password_length_check)
+]]></system-out>
+  </testcase>
+  <testcase name="shortUsernameNegative" classname="com.revature.tests.repository.user.UserDaoCreationTest" time="0.018">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: username_length_check)
+]]></system-out>
+  </testcase>
+  <testcase name="passwordStartsWithNumberNegative" classname="com.revature.tests.repository.user.UserDaoCreationTest" time="0.018">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: password_character_check)
+]]></system-out>
+  </testcase>
+  <testcase name="shortPasswordNegative" classname="com.revature.tests.repository.user.UserDaoCreationTest" time="0.018">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: password_length_check)
+]]></system-out>
+  </testcase>
+  <testcase name="passwordInvalidCharactersNegative" classname="com.revature.tests.repository.user.UserDaoCreationTest" time="0.019">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: password_character_check)
+]]></system-out>
+  </testcase>
+  <testcase name="retrieveUserByUsernamePositive" classname="com.revature.tests.repository.user.UserDaoRetrievalTest" time="0.022">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="retrieveUserByUsernameNegative" classname="com.revature.tests.repository.user.UserDaoRetrievalTest" time="0.019">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="authenticationPositive" classname="com.revature.tests.service.user.UserServiceAuthentication" time="1.346">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="incorrectUsernameAuthenticationNegative" classname="com.revature.tests.service.user.UserServiceAuthentication" time="0.022">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="incorrectPasswordAuthenticationNegative" classname="com.revature.tests.service.user.UserServiceAuthentication" time="0.019">
+    <system-out><![CDATA[Database setup complete
+Invalid credentials]]></system-out>
+  </testcase>
+  <testcase name="noLowerNegative" classname="com.revature.tests.service.user.UserServiceCreationTest" time="0.022">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="usernameInvalidCharactersNegative" classname="com.revature.tests.service.user.UserServiceCreationTest" time="0.019">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="noCapsNegative" classname="com.revature.tests.service.user.UserServiceCreationTest" time="0.019">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="noNumberNegative" classname="com.revature.tests.service.user.UserServiceCreationTest" time="0.019">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="duplicateUsernameNegative" classname="com.revature.tests.service.user.UserServiceCreationTest" time="0.018">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="longUsernameNegative" classname="com.revature.tests.service.user.UserServiceCreationTest" time="0.018">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="createUserPostive" classname="com.revature.tests.service.user.UserServiceCreationTest" time="0.021">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="usernameStartsWithNumberNegative" classname="com.revature.tests.service.user.UserServiceCreationTest" time="0.017">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="longPasswordNegative" classname="com.revature.tests.service.user.UserServiceCreationTest" time="0.02">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="shortUsernameNegative" classname="com.revature.tests.service.user.UserServiceCreationTest" time="0.02">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="passwordStartsWithNumberNegative" classname="com.revature.tests.service.user.UserServiceCreationTest" time="0.019">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="shortPasswordNegative" classname="com.revature.tests.service.user.UserServiceCreationTest" time="0.023">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="passwordInvalidCharactersNegative" classname="com.revature.tests.service.user.UserServiceCreationTest" time="0.019">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="selectByOwnerPositive" classname="com.revature.tests.service.planet.PlanetRetrievalServiceTest" time="0.078">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="selectByOwnerNegative" classname="com.revature.tests.service.planet.PlanetRetrievalServiceTest" time="0.02">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="readMoonsByPlanetPositive" classname="com.revature.tests.repository.moon.MoonRetrievalRepositoryTest" time="0.037">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="readMoonsByPlanetNegative" classname="com.revature.tests.repository.moon.MoonRetrievalRepositoryTest" time="0.018">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="readPlanetsByOwnerPositive" classname="com.revature.tests.repository.planet.PlanetRetrievalRepositoryTest" time="0.029">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="readPlanetsByOwnerNegative" classname="com.revature.tests.repository.planet.PlanetRetrievalRepositoryTest" time="0.019">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="selectByPlanetPositive" classname="com.revature.tests.service.moon.MoonRetrievalServiceTest" time="0.065">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="selectByPlanetNegative" classname="com.revature.tests.service.moon.MoonRetrievalServiceTest" time="0.02">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="RepoLayerInvalidPlanetName" classname="com.revature.tests.repository.planet.PlanetCreationDaoTest" time="0.048">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: name_character_check)
+]]></system-out>
+  </testcase>
+  <testcase name="RepoLayerCreatePlanetSuccess" classname="com.revature.tests.repository.planet.PlanetCreationDaoTest" time="0.035">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="RepoLayerInvalidImagePlanet" classname="com.revature.tests.repository.planet.PlanetCreationDaoTest" time="0.026">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="RepoLayerTooManyCharacters" classname="com.revature.tests.repository.planet.PlanetCreationDaoTest" time="0.026">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: name_length_check)
+]]></system-out>
+  </testcase>
+  <testcase name="RepoLayerPngTest" classname="com.revature.tests.repository.planet.PlanetCreationDaoTest" time="0.035">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="RepoLayerNonUniquePlanetName" classname="com.revature.tests.repository.planet.PlanetCreationDaoTest" time="0.03">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: planets.name)
+]]></system-out>
+  </testcase>
+  <testcase name="RepoLayerImageUpload" classname="com.revature.tests.repository.moon.MoonCreationDaoTest" time="0.037">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="RepoLayerInvalidMoonName" classname="com.revature.tests.repository.moon.MoonCreationDaoTest" time="0.025">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: name_character_check)
+]]></system-out>
+  </testcase>
+  <testcase name="RepoLayerInvalidOwnerId" classname="com.revature.tests.repository.moon.MoonCreationDaoTest" time="0.022">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_FOREIGNKEY] A foreign key constraint failed (FOREIGN KEY constraint failed)
+]]></system-out>
+  </testcase>
+  <testcase name="RepoLayerInvalidImage" classname="com.revature.tests.repository.moon.MoonCreationDaoTest" time="0.023">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="RepoLayerMoonCreationSuccess" classname="com.revature.tests.repository.moon.MoonCreationDaoTest" time="0.029">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="RepoLayerInvalidMoonImage" classname="com.revature.tests.repository.moon.MoonCreationDaoTest" time="0.023">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="RepoLayerNonUniqueMoonName" classname="com.revature.tests.repository.moon.MoonCreationDaoTest" time="0.023">
+    <system-out><![CDATA[Database setup complete
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: moons.name)
+]]></system-out>
+  </testcase>
+  <testcase name="ServiceLayerTooManyCharacters" classname="com.revature.tests.service.planet.PlanetCreationServiceTest" time="0.021">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="ServiceLayerCreatePlanetSuccess" classname="com.revature.tests.service.planet.PlanetCreationServiceTest" time="0.029">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="ServiceLayerPngTest" classname="com.revature.tests.service.planet.PlanetCreationServiceTest" time="0.03">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="ServiceLayerInvalidImagePlanet" classname="com.revature.tests.service.planet.PlanetCreationServiceTest" time="0.022">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="ServiceLayerInvalidPlanetName" classname="com.revature.tests.service.planet.PlanetCreationServiceTest" time="0.025">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="ServiceLayerNonUniquePlanetName" classname="com.revature.tests.service.planet.PlanetCreationServiceTest" time="0.022">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="ServiceLayerInvalidPlanetId" classname="com.revature.tests.service.moon.MoonCreationServiceTest" time="0.026">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="ServiceLayerTooManyCharacters" classname="com.revature.tests.service.moon.MoonCreationServiceTest" time="0.026">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="ServiceLayerPngTest" classname="com.revature.tests.service.moon.MoonCreationServiceTest" time="0.031">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="ServiceLayerInvalidMoonName" classname="com.revature.tests.service.moon.MoonCreationServiceTest" time="0.024">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="ServiceLayerMoonCreationSuccess" classname="com.revature.tests.service.moon.MoonCreationServiceTest" time="0.03">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="ServiceLayerInvalidMoonImage" classname="com.revature.tests.service.moon.MoonCreationServiceTest" time="0.021">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="ServiceLayerNonUniqueName" classname="com.revature.tests.service.moon.MoonCreationServiceTest" time="0.032">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="daoDeletePlanetPositiveTest" classname="com.revature.tests.repository.planet.PlanetRepositoryDeletionTest" time="0.032">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="daoDeletePlanetNegativeTest" classname="com.revature.tests.repository.planet.PlanetRepositoryDeletionTest" time="0.018">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="daoDeleteMoonPositiveTest" classname="com.revature.tests.repository.moon.MoonRepositoryDeletionTest" time="0.022">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="daoDeleteMoonNegativeTest" classname="com.revature.tests.repository.moon.MoonRepositoryDeletionTest" time="0.018">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="serviceDeletePlanetPositiveTest" classname="com.revature.tests.service.planet.PlanetServiceDeletionTest" time="0.013">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="serviceDeletePlanetNegativeTest" classname="com.revature.tests.service.planet.PlanetServiceDeletionTest" time="0.019">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="serviceDeleteMoonPositiveTest" classname="com.revature.tests.service.moon.MoonServiceDeletionTest" time="0.016">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+  <testcase name="serviceDeleteMoonNegativeTest" classname="com.revature.tests.service.moon.MoonServiceDeletionTest" time="0.015">
+    <system-out><![CDATA[Database setup complete
+]]></system-out>
+  </testcase>
+</testsuite>
