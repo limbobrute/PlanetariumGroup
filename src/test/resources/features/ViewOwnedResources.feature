@@ -12,3 +12,12 @@ Feature: View User Planets and Moons
         When    the user tries to directly access the home page
         Then    the user should be denied access
 
+    Rule: A resource is visible only to its creator
+        Example: Prevent users from seeing other planets
+            Given a user has created a planet
+            When another user views the home page
+            Then they should not be able to see the created planet
+        Example: Prevent users from seeing other moons
+            Given a user has created a moon
+            When another user views the home page
+            Then they should not be able to see the created moon
