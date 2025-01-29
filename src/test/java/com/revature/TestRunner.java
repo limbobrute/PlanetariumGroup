@@ -13,6 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.nio.file.Files;
 import java.time.Duration;
 
 @RunWith(Cucumber.class)
@@ -37,6 +38,8 @@ public class TestRunner {
     public static void setup(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
+        String tempDir = "chrome-profile-" + System.getenv("BUILD_ID");
+        options.addArguments("user-data-dir=" + tempDir);
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         wait = new WebDriverWait(driver, Duration.ofSeconds(1));
