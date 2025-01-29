@@ -38,8 +38,7 @@ public class TestRunner {
     public static void setup(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
-        //String tempDir = "chrome-profile-" + System.getenv("BUILD_ID");
-        //options.addArguments("user-data-dir=" + tempDir);
+        options.addArguments("--user-data-dir=/tmp/user-data" + System.getenv("BUILD_ID"));
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         wait = new WebDriverWait(driver, Duration.ofSeconds(1));
