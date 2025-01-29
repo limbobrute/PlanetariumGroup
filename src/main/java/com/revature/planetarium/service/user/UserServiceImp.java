@@ -62,7 +62,6 @@ public class UserServiceImp implements UserService {
             return "User created successfully";
         } else {
             throw new UserFail("Failed to create user, please try again");
-
         }
 
     }

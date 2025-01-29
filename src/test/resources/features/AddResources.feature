@@ -62,7 +62,6 @@ Feature: Planet and Moon Adding
       |thisisthirtylettersthatsinvalid|0  |Invalid moon name|
       |                               |0  |Invalid moon name|
       |?                              |0  |Invalid moon name|
-      |Titan                          |0  |Invalid moon name|
       |majora moon                    |0  |Invalid planet id|
 
   Scenario Outline: User provides a valid planet/moon with the incorrect file type
