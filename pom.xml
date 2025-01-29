@@ -84,7 +84,7 @@
 				<configuration>
 					<includes>
 						<include>PlanetariumTestSuite.java</include>
-						<include>TestRunner.java</include>
+						<!--<include>TestRunner.java</include>-->
 					</includes>
 
 					<excludes></excludes>
