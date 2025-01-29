@@ -38,6 +38,8 @@ public class TestRunner {
     public static void setup(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--no-sandbox");
         options.addArguments("--user-data-dir=/tmp/user-data" + System.getenv("BUILD_ID"));
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
