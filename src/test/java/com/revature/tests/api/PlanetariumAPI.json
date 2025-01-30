@@ -1020,88 +1020,6 @@
 			"response": []
 		},
 		{
-			"name": "Delete valid planet",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 204\", function(){\r",
-							"    pm.response.to.have.status(204);\r",
-							"    });\r",
-							"\r",
-							"\r",
-							"pm.test(\"Message: Planet deleted successfully\", function () {\r",
-							"    pm.response.to.have.body(\"Planet deleted successfully\");\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": "http://54.196.136.154:8081/planetarium/planet/Earth"
-			},
-			"response": []
-		},
-		{
-			"name": "Delete invalid planet owned by other user",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 404\", function(){\r",
-							"        pm.response.to.have.status(404);\r",
-							"    });\r",
-							"\r",
-							"pm.test(\"Message: Invalid planet name\", function () {\r",
-							"    pm.response.to.have.body(\"Invalid planet name\");\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": "http://54.196.136.154:8081/planetarium/planet/Pluto"
-			},
-			"response": []
-		},
-		{
-			"name": "Delete invalid planet not existing planet",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 404\", function(){\r",
-							"        pm.response.to.have.status(404);\r",
-							"    });\r",
-							"\r",
-							"pm.test(\"Message: Invalid planet name\", function () {\r",
-							"    pm.response.to.have.body(\"Invalid planet name\");\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": "http://54.196.136.154:8081/planetarium/planet/Neptune"
-			},
-			"response": []
-		},
-		{
 			"name": "DeleteMoonSccuess",
 			"event": [
 				{
@@ -1186,6 +1104,88 @@
 					}
 				},
 				"url": "http://54.196.136.154:8081/planetarium/moon/Equnoix"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete valid planet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function(){\r",
+							"    pm.response.to.have.status(204);\r",
+							"    });\r",
+							"\r",
+							"\r",
+							"pm.test(\"Message: Planet deleted successfully\", function () {\r",
+							"    pm.response.to.have.body(\"Planet deleted successfully\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://54.196.136.154:8081/planetarium/planet/Earth"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete invalid planet owned by other user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function(){\r",
+							"        pm.response.to.have.status(404);\r",
+							"    });\r",
+							"\r",
+							"pm.test(\"Message: Invalid planet name\", function () {\r",
+							"    pm.response.to.have.body(\"Invalid planet name\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://54.196.136.154:8081/planetarium/planet/Pluto"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete invalid planet not existing planet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function(){\r",
+							"        pm.response.to.have.status(404);\r",
+							"    });\r",
+							"\r",
+							"pm.test(\"Message: Invalid planet name\", function () {\r",
+							"    pm.response.to.have.body(\"Invalid planet name\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://54.196.136.154:8081/planetarium/planet/Neptune"
 			},
 			"response": []
 		}
