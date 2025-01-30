@@ -31,7 +31,7 @@ public class LoginPage {
     }
 
     public void setUpLoggedInUser(){
-        driver.get("http://54.196.136.154:8081/");
+        driver.get(AppConfig.PLANETARIUM_URL);
         //System.out.println(driver.getPageSource());
         usernameInput.sendKeys("Batman");
         //System.out.println("sending username: " + usernameInput);
