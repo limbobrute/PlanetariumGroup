@@ -580,7 +580,7 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Expected error message: Invalid planet name for planet name thisisthirtylettersthatsinvalid with invalid file type\", function () {    \r",
-							"    pm.response.to.have.body(\"Invalid planet name\");\r",
+							"    pm.response.to.have.body(\"Invalid file type\");\r",
 							"});"
 						],
 						"type": "text/javascript",
@@ -810,7 +810,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"moonName\": \"APIMoon\",\r\n    \"ownerId\": 1,\r\n    \"imageData\": \"\"\r\n}",
+					"raw": "{\r\n    \"moonName\": \"APIMoon\",\r\n    \"ownerId\": 1    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -843,7 +843,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"moonName\": \"APIMoonWithImage\",\r\n    \"ownerId\": 1,\r\n    \"imageData\": \"C:\\\\Users\\\\William\\\\Documents\\\\GitHub\\\\PlanetariumTesting\\\\Cucmber\\\\src\\\\test\\\\resources\\\\Celestial-Images\\\\moons-3.jpg\"\r\n}",
+					"raw": "{\r\n    \"moonName\": \"APIMoonWithImage\",\r\n    \"ownerId\": 1,\r\n    \"imageData\": \"/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/wAALCAABAAEBAREA/8QAFAABAAAAAAAAAAAAAAAAAAAACf/EABQQAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQEAAD8AKp//2Q==\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -876,7 +876,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"moonName\": \"APIMoon!\",\r\n    \"ownerId\": 1,\r\n    \"imageData\": \"\"\r\n}",
+					"raw": "{\r\n    \"moonName\": \"APIMoon!\",\r\n    \"ownerId\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -909,7 +909,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"moonName\": \"APIMoonwithfartoomanycharactersinthename\",\r\n    \"onwerId\": 1,\r\n    \"imageData\": \"\"\r\n}",
+					"raw": "{\r\n    \"moonName\": \"APIMoonwithfartoomanycharactersinthename\",\r\n    \"onwerId\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -942,7 +942,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"moonName\": \"Titan\",\r\n    \"onwerID\": 1,\r\n    \"imageData\": \"\"\r\n}",
+					"raw": "{\r\n    \"moonName\": \"Titan\",\r\n    \"onwerID\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -975,7 +975,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"moonName\": \"APIWrongId\",\r\n    \"ownerId\": 0,\r\n    \"imageData\": \"\"\r\n}",
+					"raw": "{\r\n    \"moonName\": \"APIWrongId\",\r\n    \"ownerId\": 0\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1008,7 +1008,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"moonName\": \"APIMoonWithImage\",\r\n    \"ownerId\": 1,\r\n    \"imageData\": \"C:\\\\Users\\\\William\\\\Documents\\\\GitHub\\\\PlanetariumTesting\\\\Cucmber\\\\src\\\\test\\\\resources\\\\Celestial-Images\\\\Testwebp.webp\"\r\n}",
+					"raw": "{\r\n    \"moonName\": \"APIMoonWithImage\",\r\n    \"ownerId\": 1,\r\n    \"imageData\": \"UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
