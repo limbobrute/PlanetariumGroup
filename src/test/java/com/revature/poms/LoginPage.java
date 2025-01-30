@@ -28,6 +28,7 @@ public class LoginPage {
 
     public void setUpLoggedInUser(){
         driver.get("http://localhost:8081/");
+        driver.getPageSource();
         usernameInput.sendKeys("Batman");
         passwordInput.sendKeys("Iamthenight1939");
         loginButton.submit();
