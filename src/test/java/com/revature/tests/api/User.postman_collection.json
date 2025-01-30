@@ -45,12 +45,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{url}}login",
-					"host": [
-						"{{url}}login"
-					]
-				}
+				"url": "http://54.196.136.154:8081"
 			},
 			"response": []
 		},
@@ -86,12 +81,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{url}}login",
-					"host": [
-						"{{url}}login"
-					]
-				}
+				"url": "http://54.196.136.154:8081"
 			},
 			"response": []
 		},
@@ -126,12 +116,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{url}}login",
-					"host": [
-						"{{url}}login"
-					]
-				}
+				"url": "http://54.196.136.154:8081"
 			},
 			"response": []
 		},
@@ -167,12 +152,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{url}}register",
-					"host": [
-						"{{url}}register"
-					]
-				}
+				"url": "http://54.196.136.154:8081/register"
 			},
 			"response": []
 		},
@@ -207,12 +187,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{url}}register",
-					"host": [
-						"{{url}}register"
-					]
-				}
+				"url": "http://54.196.136.154:8081/register"
 			},
 			"response": []
 		},
@@ -247,12 +222,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{url}}register",
-					"host": [
-						"{{url}}register"
-					]
-				}
+				"url": "http://54.196.136.154:8081/register"
 			},
 			"response": []
 		},
@@ -287,12 +257,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{url}}register",
-					"host": [
-						"{{url}}register"
-					]
-				}
+				"url": "http://54.196.136.154:8081/register"
 			},
 			"response": []
 		},
@@ -327,12 +292,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{url}}register",
-					"host": [
-						"{{url}}register"
-					]
-				}
+				"url": "http://54.196.136.154:8081/register"
 			},
 			"response": []
 		},
@@ -367,12 +327,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{url}}register",
-					"host": [
-						"{{url}}register"
-					]
-				}
+				"url": "http://54.196.136.154:8081/register"
 			},
 			"response": []
 		},
@@ -407,12 +362,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{url}}register",
-					"host": [
-						"{{url}}register"
-					]
-				}
+				"url": "http://54.196.136.154:8081/register"
 			},
 			"response": []
 		},
@@ -447,12 +397,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{url}}register",
-					"host": [
-						"{{url}}register"
-					]
-				}
+				"url": "http://54.196.136.154:8081/register"
 			},
 			"response": []
 		},
@@ -487,12 +432,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{url}}register",
-					"host": [
-						"{{url}}register"
-					]
-				}
+				"url": "http://54.196.136.154:8081/regsiter"
 			},
 			"response": []
 		},
@@ -527,12 +467,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{url}}register",
-					"host": [
-						"{{url}}register"
-					]
-				}
+				"url": "http://54.196.136.154:8081/register"
 			},
 			"response": []
 		},
@@ -567,12 +502,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{url}}register",
-					"host": [
-						"{{url}}register"
-					]
-				}
+				"url": "http://54.196.136.154:8081/register"
 			},
 			"response": []
 		},
@@ -607,12 +537,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{url}}register",
-					"host": [
-						"{{url}}register"
-					]
-				}
+				"url": "http://54.196.136.154:8081/register"
 			},
 			"response": []
 		},
@@ -645,12 +570,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{url}}logout",
-					"host": [
-						"{{url}}logout"
-					]
-				}
+				"url": "http://54.196.136.154:8081/logout"
 			},
 			"response": []
 		}
