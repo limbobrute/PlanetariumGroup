@@ -14,6 +14,13 @@ public class DatabaseConnector
         String username = System.getenv("RDS_USERNAME");
         String password = System.getenv("RDS_PASSWORD");
         System.out.println("rds_username: " + username);
-        return DriverManager.getConnection(url, username, password);
+        try {
+            Connection conn = DriverManager.getConnection(url, username, password);
+            System.out.println("DB connection established successfully!");
+            return conn;
+        } catch (SQLException e) {
+            System.err.println("DB connection failed: " + e.getMessage());
+            throw e; // Rethrow after logging
+        }
     }
 }

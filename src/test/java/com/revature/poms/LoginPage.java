@@ -1,9 +1,12 @@
 package com.revature.poms;
 
+import com.revature.TestRunner;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage {
 
@@ -35,6 +38,13 @@ public class LoginPage {
         System.out.println("sending password: " + passwordInput);
         loginButton.submit();
         System.out.println("logging in");
+        try {
+            Alert alert = TestRunner.driver.switchTo().alert();
+            System.out.println("Alert found: " + alert.getText());
+            alert.accept();
+        } catch (Exception e) {
+            System.out.println("No alert present after login.");
+        }
     }
 
     public void clickLoginButton() {
