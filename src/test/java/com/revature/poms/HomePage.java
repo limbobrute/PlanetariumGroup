@@ -23,7 +23,7 @@ public class HomePage {
     @FindBy(tagName = "tr")
     private List<WebElement> tableRows;
 
-    @FindBy(id = "locationSelect")
+    @FindBy(xpath = "//select")
     private WebElement planetMoonSelect;
 
     @FindBy(id = "planetNameInput")

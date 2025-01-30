@@ -45,7 +45,7 @@ public class TestRunner {
         driver = new ChromeDriver(options);
         //driver = new FirefoxDriver();
         // test
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         wait = new WebDriverWait(driver, Duration.ofSeconds(1));
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
