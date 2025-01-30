@@ -1,6 +1,7 @@
 package com.revature.poms;
 
 import com.revature.TestRunner;
+import com.revature.planetarium.utility.AppConfig;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,7 +31,7 @@ public class LoginPage {
     }
 
     public void setUpLoggedInUser(){
-        driver.get("http://localhost:8081/");
+        driver.get(AppConfig.PLANETARIUM_URL);
         //System.out.println(driver.getPageSource());
         usernameInput.sendKeys("Batman");
         //System.out.println("sending username: " + usernameInput);
@@ -52,7 +53,7 @@ public class LoginPage {
     }
 
     public void openLoginPage(){
-        driver.get("http://localhost:8081/");
+        driver.get(AppConfig.PLANETARIUM_URL);
     }
 
     public void clickRegistrationLink(){

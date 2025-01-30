@@ -1,5 +1,6 @@
 package com.revature.poms;
 
+import com.revature.planetarium.utility.AppConfig;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -67,7 +68,7 @@ public class HomePage {
     }
 
     public void tryToAccessHomePageDirectly(){
-        driver.get("http://localhost:8081/planetarium");
+        driver.get(AppConfig.PLANETARIUM_URL + "/planetarium");
     }
 
     public void selectPlanet() {
