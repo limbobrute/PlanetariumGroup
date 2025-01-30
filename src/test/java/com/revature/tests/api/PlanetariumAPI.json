@@ -1116,12 +1116,7 @@
 						"exec": [
 							"pm.test(\"Status code is 204\", function(){\r",
 							"    pm.response.to.have.status(204);\r",
-							"    });\r",
-							"\r",
-							"\r",
-							"pm.test(\"Message: Planet deleted successfully\", function () {\r",
-							"    pm.response.to.have.body(\"Planet deleted successfully\");\r",
-							"});"
+							"    });"
 						],
 						"type": "text/javascript",
 						"packages": {}
