@@ -11,8 +11,10 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.5.2</version>
         <configuration>
-          <includes>PlanetariumTestSuite.java,
-								TestRunner.java</includes>
+          <includes>
+            <include>PlanetariumTestSuite.java</include>
+            <include>TestRunner.java</include>
+          </includes>
           <excludes />
         </configuration>
       </plugin>
