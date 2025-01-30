@@ -1,6 +1,7 @@
 package com.revature.poms;
 
 import com.revature.TestRunner;
+import com.revature.planetarium.utility.AppConfig;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -52,7 +53,7 @@ public class LoginPage {
     }
 
     public void openLoginPage(){
-        driver.get("http://54.196.136.154:8081/");
+        driver.get(AppConfig.PLANETARIUM_URL);
     }
 
     public void clickRegistrationLink(){
