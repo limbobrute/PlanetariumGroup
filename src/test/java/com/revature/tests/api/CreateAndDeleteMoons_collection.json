@@ -53,7 +53,7 @@
 						}
 					}
 				},
-				"url": "http://54.196.136.154:8081/planetarium/moon"
+				"url": "http://localhost:8081/planetarium/moon"
 			},
 			"response": []
 		},
