@@ -111,50 +111,56 @@
             }
         });
 
-        async function populateCelestialTable() {
-        document.getElementById('celestialTable').innerHTML = '<tr><th>Type</th><th>ID</th><th>Name</th><th>Owner</th></tr>';
-        const response = await fetch(`http://{URL}:{PORT}/planetarium/planet/owner/${sessionStorage.getItem("userId")}`, {credentials: 'include'});
-        if (response.ok) {
-            const data = await response.json();
-            console.log(data);
-            const table = document.getElementById('celestialTable');
-            data.forEach(planet => {
-                const row = table.insertRow();
-                const typeCell = row.insertCell(0);
-                const idCell = row.insertCell(1);
-                const nameCell = row.insertCell(2);
-                const ownerCell = row.insertCell(3);
-                const imageCell = row.insertCell(4);
-                typeCell.textContent = 'planet';
-                idCell.textContent = planet.planetId;
-                nameCell.textContent = planet.planetName;
-                ownerCell.textContent = planet.ownerId;
-                const planetImageElement = document.createElement('img');
-                planetImageElement.src = `data:image/jpeg;base64,${planet.imageData}`;
-                imageCell.appendChild(planetImageElement);
-
-            });
-        }
-        const moonResponse = await fetch('http://{URL}:{PORT}/planetarium/moon', {credentials: 'include'});
-            if (moonResponse.ok) {
-                const moonData = await moonResponse.json();
-                console.log(moonData);
+        async function populateCelestialTable()
+        {
+            document.getElementById('celestialTable').innerHTML = '<tr><th>Type</th><th>ID</th><th>Name</th><th>Owner</th></tr>';
+            const response = await fetch(`http://{URL}:{PORT}/planetarium/planet/owner/${sessionStorage.getItem("userId")}`, {credentials: 'include'});
+            let planetIdArr = [];
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data);
                 const table = document.getElementById('celestialTable');
-                moonData.forEach(moon => {
+                data.forEach(planet => {
                     const row = table.insertRow();
                     const typeCell = row.insertCell(0);
                     const idCell = row.insertCell(1);
                     const nameCell = row.insertCell(2);
                     const ownerCell = row.insertCell(3);
                     const imageCell = row.insertCell(4);
-                    typeCell.textContent = 'moon';
-                    idCell.textContent = moon.moonId;
-                    nameCell.textContent = moon.moonName;
-                    ownerCell.textContent = moon.ownerId;
-                    const moonImageElement = document.createElement('img');
-                    moonImageElement.src = `data:image/jpeg;base64,${moon.imageData}`;
-                    imageCell.appendChild(moonImageElement);
+                    typeCell.textContent = 'planet';
+                    idCell.textContent = planet.planetId;
+                    nameCell.textContent = planet.planetName;
+                    ownerCell.textContent = planet.ownerId;
+                    const planetImageElement = document.createElement('img');
+                    planetImageElement.src = `data:image/jpeg;base64,${planet.imageData}`;
+                    imageCell.appendChild(planetImageElement);
+                    planetIdArr.push(planet.planetId);
+
                 });
+            }
+
+            for(let i = 0; i < planetIdArr.length; i++){
+                const moonResponse = await fetch('http://{URL}:{PORT}/planetarium/moon/owner/' + planetIdArr[i], {credentials: 'include'});
+                if (moonResponse.ok) {
+                    const moonData = await moonResponse.json();
+                    console.log(moonData);
+                    const table = document.getElementById('celestialTable');
+                    moonData.forEach(moon => {
+                        const row = table.insertRow();
+                        const typeCell = row.insertCell(0);
+                        const idCell = row.insertCell(1);
+                        const nameCell = row.insertCell(2);
+                        const ownerCell = row.insertCell(3);
+                        const imageCell = row.insertCell(4);
+                        typeCell.textContent = 'moon';
+                        idCell.textContent = moon.moonId;
+                        nameCell.textContent = moon.moonName;
+                        ownerCell.textContent = moon.ownerId;
+                        const moonImageElement = document.createElement('img');
+                        moonImageElement.src = `data:image/jpeg;base64,${moon.imageData}`;
+                        imageCell.appendChild(moonImageElement);
+                    });
+                }
             }
         }
         
