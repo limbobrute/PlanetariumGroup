@@ -24,7 +24,8 @@ import java.time.Duration;
         plugin = {
                 "pretty",
                 "html:src/test/resources/reports/html-report.html",
-                "json:src/test/resources/reports/json-report.json"
+                "json:src/test/resources/reports/json-report.json",
+                "junit:target/cucumber-reports/Cucumber.xml",
         }
 )
 public class TestRunner {
