@@ -30,7 +30,7 @@ public class LoginPage {
     }
 
     public void setUpLoggedInUser(){
-        driver.get("http://localhost:8081/");
+        driver.get("http://54.196.136.154:8081/");
         //System.out.println(driver.getPageSource());
         usernameInput.sendKeys("Batman");
         //System.out.println("sending username: " + usernameInput);
@@ -52,7 +52,7 @@ public class LoginPage {
     }
 
     public void openLoginPage(){
-        driver.get("http://localhost:8081/");
+        driver.get("http://54.196.136.154:8081/");
     }
 
     public void clickRegistrationLink(){
