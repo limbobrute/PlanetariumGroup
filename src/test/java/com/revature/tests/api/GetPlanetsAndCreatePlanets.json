@@ -7,6 +7,24 @@
 	},
 	"item": [
 		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Batman\",\r\n    \"password\": \"Iamthenight1939\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://54.196.136.154:8081/login"
+			},
+			"response": []
+		},
+		{
 			"name": "Get Planets By Owner ID Positive",
 			"event": [
 				{
