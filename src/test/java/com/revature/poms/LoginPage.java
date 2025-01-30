@@ -31,20 +31,20 @@ public class LoginPage {
 
     public void setUpLoggedInUser(){
         driver.get("http://localhost:8081/");
-        System.out.println(driver.getPageSource());
+        //System.out.println(driver.getPageSource());
         usernameInput.sendKeys("Batman");
-        System.out.println("sending username: " + usernameInput);
+        //System.out.println("sending username: " + usernameInput);
         passwordInput.sendKeys("Iamthenight1939");
-        System.out.println("sending password: " + passwordInput);
+        //System.out.println("sending password: " + passwordInput);
         loginButton.submit();
-        System.out.println("logging in");
+        /*System.out.println("logging in");
         try {
             Alert alert = TestRunner.driver.switchTo().alert();
             System.out.println("Alert found: " + alert.getText());
             alert.accept();
         } catch (Exception e) {
             System.out.println("No alert present after login.");
-        }
+        }*/
     }
 
     public void clickLoginButton() {

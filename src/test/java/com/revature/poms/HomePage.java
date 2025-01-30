@@ -71,7 +71,7 @@ public class HomePage {
     }
 
     public void selectPlanet() {
-        System.out.println(driver.getPageSource());
+        //System.out.println(driver.getPageSource());
         List<WebElement> options = planetMoonSelect.findElements(By.tagName("option"));
         options.get(1).click();
     }
