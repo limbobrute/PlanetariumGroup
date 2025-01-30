@@ -58,7 +58,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/planetarium/planet/owner/1",
+					"raw": "http://54.196.136.154:8081/planetarium/planet/owner/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -145,12 +145,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/planetarium/planet/owner/0",
+					"raw": "http://54.196.136.154:8081/planetarium/planet/owner/0",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54.196.136.154"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"planetarium",
 						"planet",
@@ -201,12 +201,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/planetarium/planet",
+					"raw": "http://54.196.136.154:8081/planetarium/planet",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54.196.136.154"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"planetarium",
 						"planet"
@@ -254,12 +254,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/planetarium/planet",
+					"raw": "http://54.196.136.154:8081/planetarium/planet",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54.196.136.154"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"planetarium",
 						"planet"
@@ -324,12 +324,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/planetarium/planet",
+					"raw": "http://54.196.136.154:8081/planetarium/planet",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54.196.136.154"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"planetarium",
 						"planet"
@@ -379,12 +379,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/planetarium/planet",
+					"raw": "http://54.196.136.154:8081/planetarium/planet",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54.196.136.154"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"planetarium",
 						"planet"
@@ -434,12 +434,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/planetarium/planet",
+					"raw": "http://54.196.136.154:8081/planetarium/planet",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54.196.136.154"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"planetarium",
 						"planet"
@@ -489,12 +489,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/planetarium/planet",
+					"raw": "http://54.196.136.154:8081/planetarium/planet",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54.196.136.154"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"planetarium",
 						"planet"
@@ -544,12 +544,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/planetarium/planet",
+					"raw": "http://54.196.136.154:8081/planetarium/planet",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54.196.136.154"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"planetarium",
 						"planet"
@@ -599,12 +599,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/planetarium/planet",
+					"raw": "http://54.196.136.154:8081/planetarium/planet",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54.196.136.154"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"planetarium",
 						"planet"
@@ -654,12 +654,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/planetarium/planet",
+					"raw": "http://54.196.136.154:8081/planetarium/planet",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54.196.136.154"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"planetarium",
 						"planet"
@@ -709,12 +709,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/planetarium/planet",
+					"raw": "http://54.196.136.154:8081/planetarium/planet",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54.196.136.154"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"planetarium",
 						"planet"
@@ -764,12 +764,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/planetarium/planet",
+					"raw": "http://54.196.136.154:8081/planetarium/planet",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54.196.136.154"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"planetarium",
 						"planet"
@@ -819,12 +819,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/planetarium/planet",
+					"raw": "http://54.196.136.154:8081/planetarium/planet",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54.196.136.154"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"planetarium",
 						"planet"
