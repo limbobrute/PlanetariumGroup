@@ -81,6 +81,7 @@ public class HomePage {
     }
 
     public void enterPlanetName(String planetName) {
+        System.out.println(driver.getPageSource());
         planetNameInput.sendKeys(planetName);
     }
 
