@@ -392,9 +392,11 @@
 					"script": {
 						"exec": [
 							"pm.test(\"Status code: 400 and expected error message: Invalid planet name for planet name thisisthirtylettersthatsinvalid\", function () {\r",
-							"    pm.response.to.have.status(400);\r",
-							"    const jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.message).to.eql(\"Invalid planet name\");\r",
+							"    pm.response.to.have.status(400);    \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Expected error message: Invalid planet name for planet name thisisthirtylettersthatsinvalid\", function () {    \r",
+							"    pm.response.to.have.body(\"Invalid planet name\");\r",
 							"});"
 						],
 						"type": "text/javascript",
@@ -435,10 +437,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code: 400 and expected error message: Invalid planet name for no planet name\", function () {\r",
+							"pm.test(\"Status code: 400\", function () {\r",
 							"    pm.response.to.have.status(400);\r",
-							"    const jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.message).to.eql(\"Invalid planet name\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Expected error message: Invalid planet name for no planet name\", function () {    \r",
+							"    pm.response.to.have.body(\"Invalid planet name\");\r",
 							"});"
 						],
 						"type": "text/javascript",
@@ -479,10 +483,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code: 400 and expected error message: Invalid planet name for planet !\", function () {\r",
+							"pm.test(\"Status code: 400\", function () {\r",
 							"    pm.response.to.have.status(400);\r",
-							"    const jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.message).to.eql(\"Invalid planet name\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Expected error message: Invalid planet name for planet !\", function () {    \r",
+							"    pm.response.to.have.body(\"Invalid planet name\");\r",
 							"});"
 						],
 						"type": "text/javascript",
@@ -523,10 +529,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code: 400 and expected error message: Invalid planet name for planet Earth\", function () {\r",
+							"pm.test(\"Status code: 400\", function () {\r",
 							"    pm.response.to.have.status(400);\r",
-							"    const jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.message).to.eql(\"Invalid planet name\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Expected error message: Invalid planet name for planet Earth\", function () {    \r",
+							"    pm.response.to.have.body(\"Invalid planet name\");\r",
 							"});"
 						],
 						"type": "text/javascript",
@@ -567,10 +575,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code: 400 and expected error message: Invalid planet name for planet thisisthirtylettersthatsinvalid with invalid file type\", function () {\r",
+							"pm.test(\"Status code: 400\", function () {\r",
 							"    pm.response.to.have.status(400);\r",
-							"    const jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.message).to.eql(\"Invalid planet name\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Expected error message: Invalid planet name for planet name thisisthirtylettersthatsinvalid with invalid file type\", function () {    \r",
+							"    pm.response.to.have.body(\"Invalid planet name\");\r",
 							"});"
 						],
 						"type": "text/javascript",
@@ -611,10 +621,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code: 400 and expected error message: Invalid planet name for no planet name with invalid file type\", function () {\r",
+							"pm.test(\"Status code: 400\", function () {\r",
 							"    pm.response.to.have.status(400);\r",
-							"    const jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.message).to.eql(\"Invalid planet name\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Expected error message: Invalid planet name for no planet name with invalid file type\", function () {    \r",
+							"    pm.response.to.have.body(\"Invalid file type\");\r",
 							"});"
 						],
 						"type": "text/javascript",
@@ -655,10 +667,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code: 400 and expected error message: Invalid planet name for planet ? with invalid file type\", function () {\r",
-							"    pm.response.to.have.status(400);\r",
-							"    const jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.message).to.eql(\"Invalid planet name\");\r",
+							"pm.test(\"Status code: 400\", function () {\r",
+							"    pm.response.to.have.status(400);    \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Expected error message: Invalid planet name for planet ? with invalid file type\", function () {    \r",
+							"    pm.response.to.have.body(\"Invalid file type\");\r",
 							"});"
 						],
 						"type": "text/javascript",
@@ -699,10 +713,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code: 400 and expected error message: Invalid planet name for planet Earth with invalid file type\", function () {\r",
+							"pm.test(\"Status code: 400\", function () {\r",
 							"    pm.response.to.have.status(400);\r",
-							"    const jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.message).to.eql(\"Invalid planet name\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Expected error message: Invalid planet name for planet Earth with invalid file type\", function () {    \r",
+							"    pm.response.to.have.body(\"Invalid file type\");\r",
 							"});"
 						],
 						"type": "text/javascript",
@@ -743,10 +759,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code: 400 and expected error message: Invalid planet name for unique planet with invalid file type\", function () {\r",
+							"pm.test(\"Status code: 400\", function () {\r",
 							"    pm.response.to.have.status(400);\r",
-							"    const jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.message).to.eql(\"Invalid planet name\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Expected error message: Invalid planet name for unique planet with invalid file type\", function () {    \r",
+							"    pm.response.to.have.body(\"Invalid file type\");\r",
 							"});"
 						],
 						"type": "text/javascript",
