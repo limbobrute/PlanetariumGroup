@@ -44,7 +44,7 @@ public class TestRunner {
         //options.addArguments("--user-data-dir=/tmp/chrome/user-data" + System.getenv("BUILD_ID"));
         driver = new ChromeDriver(options);
         //driver = new FirefoxDriver();
-        //
+        // test
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         wait = new WebDriverWait(driver, Duration.ofSeconds(1));
         homePage = new HomePage(driver);
