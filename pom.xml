@@ -83,6 +83,7 @@
 				<version>3.5.2</version>
 				<configuration>
 					<includes>
+						<include>PlanetariumTestSuite.java</include>
 						<include>TestRunner.java</include>
 					</includes>
 
