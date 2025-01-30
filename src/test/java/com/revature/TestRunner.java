@@ -38,7 +38,7 @@ public class TestRunner {
     @BeforeClass
     public static void setup(){
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--headless");
+        options.addArguments("--headless");
         options.addArguments("--disable-gpu");
         options.addArguments("--no-sandbox");
         //options.addArguments("--user-data-dir=/tmp/chrome/user-data" + System.getenv("BUILD_ID"));
