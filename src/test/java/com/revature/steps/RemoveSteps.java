@@ -23,7 +23,12 @@ public class RemoveSteps {
 
     @Then("the planet {string} should be removed from the database successfully")
     public void the_planet_should_be_removed_from_the_database_successfully(String name) {
-
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new RuntimeException("Thread was interrupted", e);
+        }
         Assert.assertFalse(TestRunner.homePage.tableContains(name));
     }
 
