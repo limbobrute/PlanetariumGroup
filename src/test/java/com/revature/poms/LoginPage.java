@@ -1,9 +1,13 @@
 package com.revature.poms;
 
+import com.revature.TestRunner;
+import com.revature.planetarium.utility.AppConfig;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage {
 
@@ -27,10 +31,21 @@ public class LoginPage {
     }
 
     public void setUpLoggedInUser(){
-        driver.get("http://localhost:8080/");
+        driver.get("http://54.196.136.154:8081/");
+        //System.out.println(driver.getPageSource());
         usernameInput.sendKeys("Batman");
+        //System.out.println("sending username: " + usernameInput);
         passwordInput.sendKeys("Iamthenight1939");
+        //System.out.println("sending password: " + passwordInput);
         loginButton.submit();
+        /*System.out.println("logging in");
+        try {
+            Alert alert = TestRunner.driver.switchTo().alert();
+            System.out.println("Alert found: " + alert.getText());
+            alert.accept();
+        } catch (Exception e) {
+            System.out.println("No alert present after login.");
+        }*/
     }
 
     public void clickLoginButton() {
@@ -38,7 +53,7 @@ public class LoginPage {
     }
 
     public void openLoginPage(){
-        driver.get("http://localhost:8080/");
+        driver.get(AppConfig.PLANETARIUM_URL);
     }
 
     public void clickRegistrationLink(){

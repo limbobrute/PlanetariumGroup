@@ -1,4 +1,14 @@
 D:\Projects\Project 2\PlanetariumGroup\src\test\java\com\revature\PlanetariumTestSuite.java
+D:\Projects\Project 2\PlanetariumGroup\src\test\java\com\revature\poms\HomePage.java
+D:\Projects\Project 2\PlanetariumGroup\src\test\java\com\revature\poms\LoginPage.java
+D:\Projects\Project 2\PlanetariumGroup\src\test\java\com\revature\poms\RegistrationPage.java
+D:\Projects\Project 2\PlanetariumGroup\src\test\java\com\revature\steps\AddSteps.java
+D:\Projects\Project 2\PlanetariumGroup\src\test\java\com\revature\steps\CommonSteps.java
+D:\Projects\Project 2\PlanetariumGroup\src\test\java\com\revature\steps\hooks\Hooks.java
+D:\Projects\Project 2\PlanetariumGroup\src\test\java\com\revature\steps\LoginSteps.java
+D:\Projects\Project 2\PlanetariumGroup\src\test\java\com\revature\steps\RegistrationSteps.java
+D:\Projects\Project 2\PlanetariumGroup\src\test\java\com\revature\steps\RemoveSteps.java
+D:\Projects\Project 2\PlanetariumGroup\src\test\java\com\revature\steps\ViewSteps.java
 D:\Projects\Project 2\PlanetariumGroup\src\test\java\com\revature\TestRunner.java
 D:\Projects\Project 2\PlanetariumGroup\src\test\java\com\revature\tests\repository\moon\MoonCreationDaoTest.java
 D:\Projects\Project 2\PlanetariumGroup\src\test\java\com\revature\tests\repository\moon\MoonRepositoryDeletionTest.java

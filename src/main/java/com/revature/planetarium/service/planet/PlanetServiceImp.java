@@ -24,8 +24,13 @@ public class PlanetServiceImp<T> implements PlanetService<T> {
         Matcher matcher = pattern.matcher(planet.getPlanetName());
         byte[] arr = planet.imageDataAsByteArray();
 
-        if(arr != null && arr[0] != (byte) 0x89 && arr[0] != (byte) 0xFF)
-        { throw new PlanetFail("Invalid file type");}
+        if(arr != null)
+        {
+            if(arr[0] != (byte) 0x89 && arr[0] != (byte) 0xFF)
+            {
+                throw new PlanetFail("Invalid file type");
+            }
+        }
 
         if(matcher.find()) {
             throw new PlanetFail("Invalid planet name");

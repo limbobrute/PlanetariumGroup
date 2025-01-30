@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "6782be7b-1feb-4734-ba4b-f40893bfe3bf",
+		"name": "Planetarium",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "40761138"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Batman\",\r\n    \"password\": \"Iamthenight1939\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://54.196.136.154:8081/login?username&password",
+					"protocol": "http",
+					"host": [
+						"54.196.136.154"
+					],
+					"port": "8081",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": null
+						},
+						{
+							"key": "password",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete valid planet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function(){\r",
+							"    pm.response.to.have.status(204);\r",
+							"    });\r",
+							"\r",
+							"\r",
+							"pm.test(\"Message: Planet deleted successfully\", function () {\r",
+							"    pm.response.to.have.body(\"Planet deleted successfully\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://54.196.136.154:8081/planetarium/planet/Earth"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete invalid planet not existing planet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function(){\r",
+							"        pm.response.to.have.status(404);\r",
+							"    });\r",
+							"\r",
+							"pm.test(\"Message: Invalid planet name\", function () {\r",
+							"    pm.response.to.have.body(\"Invalid planet name\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://54.196.136.154:8081/planetarium/planet/Neptune"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete invalid planet owned by other user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function(){\r",
+							"        pm.response.to.have.status(404);\r",
+							"    });\r",
+							"\r",
+							"pm.test(\"Message: Invalid planet name\", function () {\r",
+							"    pm.response.to.have.body(\"Invalid planet name\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://54.196.136.154:8081/planetarium/planet/Pluto"
+			},
+			"response": []
+		},
+		{
+			"name": "Get moons by valid planet id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body should contain moon details\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"moonId\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://54.196.136.154:8081/planetarium/moon/owner/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Get moons by invalid planet id not existing",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body should not contain moon details\", function () {\r",
+							"    pm.expect(pm.response.text()).to.not.include(\"moonId\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://54.196.136.154:8081/planetarium/moon/owner/99"
+			},
+			"response": []
+		}
+	]
+}

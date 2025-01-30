@@ -31,10 +31,9 @@ public class MoonCreationDaoTest
     public void Setup()
     {
         DaoObject = new MoonDaoImp();
-
-        String jpg = "src\\test\\resources\\Celestial-Images\\moons-1.jpg";
-        String png = "src\\test\\resources\\Celestial-Images\\moons-1.png";
-        String webp = "src\\test\\resources\\Celestial-Images\\Testwebp.webp";
+        String jpg = "src/test/resources/Celestial-Images/moons-1.jpg";
+        String png = "src/test/resources/Celestial-Images/moons-1.png";
+        String webp = "src/test/resources/Celestial-Images/Testwebp.webp";
         jpgFile = FileEncoder.encoder(jpg);
         webpFile = FileEncoder.encoder(webp);
         pngFile = FileEncoder.encoder(png);

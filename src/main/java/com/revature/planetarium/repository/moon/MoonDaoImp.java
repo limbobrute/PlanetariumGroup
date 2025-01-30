@@ -40,11 +40,11 @@ public class MoonDaoImp implements MoonDao {
         } catch (SQLException e) {
             System.out.println(e);
             String errorMessage = e.getMessage();
-            if(errorMessage.contains("name_length_check") || errorMessage.contains("name_character_check") || errorMessage.contains("SQLITE_CONSTRAINT_UNIQUE")){
+            if(errorMessage.contains("name_length_check") || errorMessage.contains("name_character_check") || errorMessage.contains("unique constraint")){
                 throw new MoonFail("Invalid moon name");
             }
 
-            else if(errorMessage.contains("SQLITE_CONSTRAINT_FOREIGNKEY")){
+            else if(errorMessage.contains("foreign key constraint")){
                 throw new MoonFail("Invalid planet ID");
             }
         }
