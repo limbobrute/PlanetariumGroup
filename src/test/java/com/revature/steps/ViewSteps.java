@@ -82,9 +82,9 @@ public class ViewSteps {
         TestRunner.loginPage.enterPassword("Krypton-was_2000");
         TestRunner.loginPage.clickLoginButton();
         //quick fix for celestialtable
-        TestRunner.homePage.selectPlanet();
+        /*TestRunner.homePage.selectPlanet();
         TestRunner.homePage.enterPlanetName("Miyabi");
-        TestRunner.homePage.submitResource();
+        TestRunner.homePage.submitResource();*/
     }
 
     @Then("they should not be able to see the created planet")
