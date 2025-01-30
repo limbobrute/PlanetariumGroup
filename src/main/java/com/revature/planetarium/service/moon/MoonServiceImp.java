@@ -27,8 +27,12 @@ public class MoonServiceImp<T> implements MoonService<T> {
         Matcher matcher = pattern.matcher(moon.getMoonName());
         byte[] arr = moon.imageDataAsByteArray();
 
-        if(arr != null && arr[0] != (byte) 0x89 && arr[0] != (byte) 0xFF)
-        { throw new MoonFail("Invalid file type");}
+        if(arr != null){
+            if(arr[0] != (byte) 0x89 && arr[0] != (byte) 0xFF)
+            {
+                throw new MoonFail("Invalid file type");
+            }
+        }
 
         if(matcher.find()) {
             throw new MoonFail("Invalid moon name");
