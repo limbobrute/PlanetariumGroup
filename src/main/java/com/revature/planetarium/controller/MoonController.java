@@ -3,9 +3,7 @@ package com.revature.planetarium.controller;
 import java.util.List;
 
 import com.revature.planetarium.entities.Moon;
-import com.revature.planetarium.entities.Planet;
 import com.revature.planetarium.exceptions.MoonFail;
-import com.revature.planetarium.exceptions.PlanetFail;
 import com.revature.planetarium.service.moon.MoonService;
 
 import io.javalin.http.Context;
@@ -58,19 +56,6 @@ public class MoonController {
             ctx.result(e.getMessage());
             ctx.status(400);
         }
-    }
-
-    public void updateMoon(Context ctx){
-        try {
-            Moon moon = ctx.bodyAsClass(Moon.class);
-            Moon updatedMoon = moonService.updateMoon(moon);
-            ctx.json(updatedMoon);
-            ctx.status(200);
-        } catch (PlanetFail e) {
-            ctx.result(e.getMessage());
-            ctx.status(400);
-        }
-
     }
 
     public void deleteMoon(Context ctx) {

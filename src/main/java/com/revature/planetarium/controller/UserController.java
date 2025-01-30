@@ -38,7 +38,6 @@ public class UserController {
             ctx.json(user);
         } catch (UserFail e) {
             ctx.status(401);
-            ctx.json(e.getMessage());
         }
     }
 
@@ -46,7 +45,7 @@ public class UserController {
     public void logout(Context ctx){
         ctx.req().getSession().invalidate();
         ctx.json("Logged out");
-        ctx.status(200);
+        ctx.status(401);
     }
 
     public void authenticateUser(Context ctx){
