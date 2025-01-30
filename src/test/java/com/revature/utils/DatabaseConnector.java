@@ -1,7 +1,5 @@
 package com.revature.utils;
 
-import org.sqlite.SQLiteConfig;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.DriverManager;
