@@ -909,7 +909,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"moonName\": \"APIMoonwithfartoomanycharactersinthename\",\r\n    \"onwerId\": 1\r\n}",
+					"raw": "{\r\n    \"moonName\": \"APIMoonwithfartoomanycharactersinthename\",\r\n    \"ownerId\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -942,7 +942,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"moonName\": \"Titan\",\r\n    \"onwerID\": 1\r\n}",
+					"raw": "{\r\n    \"moonName\": \"Titan\",\r\n    \"ownerId\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
