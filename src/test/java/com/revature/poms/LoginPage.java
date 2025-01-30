@@ -30,8 +30,11 @@ public class LoginPage {
         driver.get("http://localhost:8081/");
         System.out.println(driver.getPageSource());
         usernameInput.sendKeys("Batman");
+        System.out.println("sending username: " + usernameInput);
         passwordInput.sendKeys("Iamthenight1939");
+        System.out.println("sending password: " + passwordInput);
         loginButton.submit();
+        System.out.println("logging in");
     }
 
     public void clickLoginButton() {
