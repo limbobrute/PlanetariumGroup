@@ -21,10 +21,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8081/login?username&password",
+					"raw": "http://54.196.136.154:8081/login?username&password",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54",
+						"196",
+						"136",
+						"154"
 					],
 					"port": "8081",
 					"path": [
@@ -95,7 +98,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8080/planetarium/planet/owner/1"
+				"url": "http://54.196.136.154:8081/planetarium/planet/owner/1"
 			},
 			"response": []
 		},
@@ -196,7 +199,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://localhost:8081/planetarium/moon/owner/1"
+				"url": "http://54.196.136.154:8081/planetarium/moon/owner/1"
 			},
 			"response": []
 		},
@@ -223,7 +226,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://localhost:8081/planetarium/moon/owner/99"
+				"url": "http://54.196.136.154:8081/planetarium/moon/owner/99"
 			},
 			"response": []
 		},
@@ -1022,7 +1025,7 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"url": "http://localhost:8081/planetarium/planet/Earth"
+				"url": "http://54.196.136.154:8081/planetarium/planet/Earth"
 			},
 			"response": []
 		},
@@ -1049,7 +1052,7 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"url": "http://localhost:8081/planetarium/planet/Pluto"
+				"url": "http://54.196.136.154:8081/planetarium/planet/Pluto"
 			},
 			"response": []
 		},
@@ -1076,7 +1079,7 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"url": "http://localhost:8081/planetarium/planet/Neptune"
+				"url": "http://54.196.136.154:8081/planetarium/planet/Neptune"
 			},
 			"response": []
 		},
