@@ -1026,9 +1026,9 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status Code is 200\", function()\r",
+							"pm.test(\"Status Code is 204\", function()\r",
 							"{\r",
-							"    pm.response.to.have.status(200);\r",
+							"    pm.response.to.have.status(204);\r",
 							"});"
 						],
 						"type": "text/javascript",
