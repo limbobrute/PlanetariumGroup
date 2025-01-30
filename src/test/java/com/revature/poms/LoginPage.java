@@ -31,7 +31,7 @@ public class LoginPage {
     }
 
     public void setUpLoggedInUser(){
-        driver.get(AppConfig.PLANETARIUM_URL);
+        driver.get("http://localhost:8081");
         //System.out.println(driver.getPageSource());
         usernameInput.sendKeys("Batman");
         //System.out.println("sending username: " + usernameInput);
@@ -53,7 +53,7 @@ public class LoginPage {
     }
 
     public void openLoginPage(){
-        driver.get(AppConfig.PLANETARIUM_URL);
+        driver.get("http://localhost:8081");
     }
 
     public void clickRegistrationLink(){

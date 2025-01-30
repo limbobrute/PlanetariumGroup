@@ -68,7 +68,7 @@ public class HomePage {
     }
 
     public void tryToAccessHomePageDirectly(){
-        driver.get(AppConfig.PLANETARIUM_URL + "/planetarium");
+        driver.get(driver.get("http://localhost:8081/planetarium");
     }
 
     public void selectPlanet() {
