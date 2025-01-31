@@ -53,7 +53,7 @@ public class LoginPage {
     }
 
     public void openLoginPage(){
-        driver.get(AppConfig.PLANETARIUM_URL);
+        driver.get("http://54.196.136.154:8081");
     }
 
     public void clickRegistrationLink(){

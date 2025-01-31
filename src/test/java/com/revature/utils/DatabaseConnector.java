@@ -13,6 +13,7 @@ public class DatabaseConnector
         String password = System.getenv("RDS_PASSWORD");
         Connection conn = DriverManager.getConnection(url, username, password);
         return conn;
+        //test
         /*System.out.println("rds_username: " + username);
         try {
             Connection conn = DriverManager.getConnection(url, username, password);

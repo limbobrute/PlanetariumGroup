@@ -287,7 +287,7 @@
 
         async function logout() {
             const response = await fetch('http://{URL}:{PORT}/logout', {method: "POST", credentials: 'include'});
-            if (response.status === 401) {
+            if (response.status === 200) {
                 sessionStorage.removeItem("user");
                 sessionStorage.removeItem("userId");
                 window.location.replace("http://{URL}:{PORT}");            
@@ -464,26 +464,26 @@
             }  
         }
 
-        async function createMoon(){
+        async function createMoon() {
             let moonName = document.getElementById('moonNameInput').value;
-            if(!checkCelestialName(moonName)){
+            if (!checkCelestialName(moonName)) {
                 alert("Invalid moon name");
                 return;
             }
             let orbitedPlanet = document.getElementById('orbitedPlanetInput').value;
-            if(!validatePlanetId(orbitedPlanet)){
+            if (!validatePlanetId(orbitedPlanet)) {
                 alert("Invalid planet id");
                 return;
             }
             let moonImageInput = document.getElementById('moonImageInput');
             let imageData = (moonImageInput.files.length > 0) ? await convertToBase64(moonImageInput) : null;
             let bodyData;
-            if (imageData){
+            if (imageData) {
                 bodyData = {
-                        moonName: moonName,
-                        ownerId: orbitedPlanet,
-                        imageData: imageData
-                    }                
+                    moonName: moonName,
+                    ownerId: orbitedPlanet,
+                    imageData: imageData
+                }
             } else {
                 bodyData = {
                     moonName: moonName,
@@ -504,7 +504,8 @@
             if (response.status === 201) {
                 populateCelestialTable();
             } else {
-                alert("Invalid moon name");             
+                alert("Invalid moon name");
+            }
         }
 
         function displayImageFromBase64(base64Data, imgElement, callback) {

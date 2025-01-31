@@ -68,11 +68,10 @@ public class HomePage {
     }
 
     public void tryToAccessHomePageDirectly(){
-        driver.get(AppConfig.PLANETARIUM_URL + "/planetarium");
+        driver.get("http://54.196.136.154:8081/planetarium/");
     }
 
     public void selectPlanet() {
-        //System.out.println(driver.getPageSource());
         List<WebElement> options = planetMoonSelect.findElements(By.tagName("option"));
         options.get(1).click();
     }
